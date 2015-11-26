@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         inicio = (TextView) findViewById(R.id.inicio);
-        inicio.setText("Bienvenido a la Api de Star Wars");
+        inicio.setText("Star Wars API");
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {

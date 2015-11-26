@@ -4,15 +4,15 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_characters"
-            android:icon="@android:drawable/ic_media_rew"
+            android:icon="@drawable/logocharacters"
             android:title="Characters" />
         <item
             android:id="@+id/nav_planets"
-            android:icon="@android:drawable/ic_menu_gallery"
+            android:icon="@drawable/planetslogo"
             android:title="Planets" />
         <item
             android:id="@+id/nav_starships"
-            android:icon="@android:drawable/ic_menu_slideshow"
+            android:icon="@drawable/starshipslogo"
             android:title="Starships" />
     </group>
 
@@ -20,7 +20,7 @@
         <menu>
             <item
                 android:id="@+id/nav_settings"
-                android:icon="@android:drawable/ic_menu_share"
+                android:icon="@android:drawable/ic_menu_preferences"
                 android:title="Settings" />
         </menu>
     </item>
