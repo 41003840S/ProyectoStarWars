@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.manuel.starwars" >
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -17,15 +19,6 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity
-            android:name=".Characters"
-            android:label="@string/title_activity_characters"
-            android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.manuel.starwars.MainActivity" />
         </activity>
         <activity
             android:name=".CharactersActivity"
@@ -62,6 +55,12 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.manuel.starwars.MainActivity" />
         </activity>
+
+        <provider
+            android:name="com.example.manuel.starwars.provider.CharacterProvider"
+            android:authorities="com.example.manuel.starwars.provider"
+            android:exported="false" />
+
     </application>
 
 </manifest>
