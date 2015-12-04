@@ -26,6 +26,7 @@ interface InterfazStarWarsApi {
 
     @GET("starships")
     Call<com.example.manuel.starwars.starshipsJSON.Example> starships(@Query("page") Integer page);
+
 }
 
 
@@ -36,7 +37,6 @@ public class RetroFit {
     private int PAGECHARACTERS = 1;
     private int PAGEPLANETS = 1;
     private int PAGESTARSHIPS = 1;
-
 
     //Constructor de la clase con el builder
     public RetroFit() {

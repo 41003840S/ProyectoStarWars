@@ -57,10 +57,19 @@
         </activity>
 
         <provider
-            android:name="com.example.manuel.starwars.provider.CharacterProvider"
+            android:name=".provider.CharacterProvider"
             android:authorities="com.example.manuel.starwars.provider"
             android:exported="false" />
 
+        <activity
+            android:name=".MoviesActivity"
+            android:label="@string/title_activity_movies"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.manuel.starwars.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

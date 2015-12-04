@@ -101,10 +101,15 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_starships) {
             i = new Intent(this, StarShipsActivity.class);
             startActivity(i);
-        } else if (id == R.id.nav_settings) {
+        } else if (id == R.id.nav_movies) {
+            i = new Intent(this, MoviesActivity.class);
+            startActivity(i);
+        }else if (id == R.id.nav_settings) {
             i = new Intent(this, SettingsActivity.class);
             startActivity(i);
         }
+
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

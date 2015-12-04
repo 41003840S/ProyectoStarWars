@@ -14,6 +14,10 @@
             android:id="@+id/nav_starships"
             android:icon="@drawable/starshipslogo"
             android:title="Starships" />
+        <item
+            android:id="@+id/nav_movies"
+            android:icon="@android:drawable/ic_media_play"
+            android:title="Movies" />
     </group>
 
     <item android:title="Preferences">
