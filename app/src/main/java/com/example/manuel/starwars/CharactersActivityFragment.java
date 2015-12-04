@@ -58,6 +58,7 @@ public class CharactersActivityFragment extends Fragment {
 
     public void refreshCharacters(){
         RetroFit character1 = new RetroFit();
-        character1.mostrarCharacters(adapterCharacters);
+        character1.downloadCharacters(adapterCharacters);
+
     }
 }

@@ -1,6 +1,9 @@
 package com.example.manuel.starwars;
 
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
+import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.design.widget.FloatingActionButton;
@@ -78,8 +81,9 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-
+        if (id == R.id.action_refresh) {
+            RefreshBackground downloadMoviesTask = new RefreshBackground();
+            downloadMoviesTask.execute();
             return true;
         }
 
@@ -104,6 +108,15 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_movies) {
             i = new Intent(this, MoviesActivity.class);
             startActivity(i);
+        }else if (id == R.id.nav_news) {
+            try{
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("vnd.youtube:" + "sGbxmsDFVnE"));
+                startActivity(intent);
+            }catch (ActivityNotFoundException ex){
+                Intent intent= new Intent(Intent.ACTION_VIEW,
+                Uri.parse("http://www.youtube.com/watch?v="+"sGbxmsDFVnE"));
+                startActivity(intent);
+        }
         }else if (id == R.id.nav_settings) {
             i = new Intent(this, SettingsActivity.class);
             startActivity(i);
@@ -114,5 +127,25 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+
+    class RefreshBackground extends AsyncTask {
+
+        @Override
+        protected Object doInBackground(Object[] params) {
+
+            RetroFit llamadas = new RetroFit();
+
+            /*llamadas.downloadCharacters(adapter);
+            llamadas.downloadPlanetas(adapter);
+            llamadas.downloadNaves(adapter);*/
+
+            RetroFitMovies movie = new RetroFitMovies();
+
+            //movie.downloadMovies(adapter);
+
+            return null;
+        }
     }
 }

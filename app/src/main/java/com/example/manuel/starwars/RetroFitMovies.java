@@ -1,12 +1,10 @@
 package com.example.manuel.starwars;
 
 
-import android.content.Context;
 import android.util.Log;
 import android.widget.ArrayAdapter;
 
 import com.example.manuel.starwars.sagamoviesJSON.Example;
-import com.example.manuel.starwars.sagamoviesJSON.Item;
 
 import java.util.Arrays;
 
@@ -44,6 +42,9 @@ public class RetroFitMovies {
 
     //Metodo que hace la llamada a la API (Characters)
     public void downloadMovies(final ArrayAdapter adapter) {
+
+        adapter.clear();
+
         //Llamada al servicio SWAPI con el metodo de la interfaz
         Call<Example> llamadaMovie = service.listaSaga(APPID);
 
@@ -55,7 +56,7 @@ public class RetroFitMovies {
 
                 Example movie = response.body();
 
-                adapter.clear();
+                Log.i("Verificar POSTERPATH", movie.getPosterPath() + "");
                 Log.i("Verificar MOVIES", movie.getItems() + "");
                 adapter.addAll(movie.getItems());
             }
@@ -67,11 +68,15 @@ public class RetroFitMovies {
         });
     }
 
+    /*public static String corregirBarra(String palabra){
+        String corregido="";
 
-
-
-
-
+        if(palabra.contains("\\")) {
+            corregido = palabra.replace("\\", "");
+            return corregido;
+        }
+        return palabra;
+    }*/
 
 
 }

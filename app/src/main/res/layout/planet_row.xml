@@ -1,141 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:background="#000000">
 
-    <LinearLayout
+    <ImageView
+        android:layout_width="130dp"
+        android:layout_height="115dp"
+        android:id="@+id/imagePlanet"
+        android:layout_below="@+id/tvPlanetName"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/tvPlanetName"
+        style="@style/Base.TextAppearance.AppCompat.Display1"
+        android:layout_width="114dp"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:textStyle="italic"
+        android:textColor="#FFEB3B"
+        android:layout_gravity="right"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/imagePlanet" />
+
+    <TextView
+        android:id="@+id/tvPlanetRotation"
+        style="@style/Base.TextAppearance.AppCompat.Body1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:text="New Text"
+        android:textColor="#FFFFFF"
+        android:layout_below="@+id/tvPlanetOrbital"
+        android:layout_alignStart="@+id/tvPlanetOrbital" />
 
-        <TextView
-            android:id="@+id/tvPlanetName"
-            style="@style/Base.TextAppearance.AppCompat.Display1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="New Text"
-            android:textColor="#FFEB3B" />
-    </LinearLayout>
-
-    <LinearLayout
+    <TextView
+        android:id="@+id/tvPlanetOrbital"
+        style="@style/Base.TextAppearance.AppCompat.Body1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:text="New Text"
+        android:textColor="#FFFFFF"
+        android:layout_below="@+id/tvPlanetDiameter"
+        android:layout_alignStart="@+id/tvPlanetDiameter" />
 
-        <TextView
-            android:id="@+id/tvPlanetRotation"
-            style="@style/Base.TextAppearance.AppCompat.Body1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="New Text"
-            android:textColor="#FFFFFF" />
-    </LinearLayout>
-
-    <LinearLayout
+    <TextView
+        android:id="@+id/tvPlanetDiameter"
+        style="@style/Base.TextAppearance.AppCompat.Body1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:text="New Text"
+        android:textColor="#FFFFFF"
+        android:layout_below="@+id/tvPlanetClimate"
+        android:layout_alignStart="@+id/tvPlanetClimate" />
 
-        <TextView
-            android:id="@+id/tvPlanetOrbital"
-            style="@style/Base.TextAppearance.AppCompat.Body1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="New Text"
-            android:textColor="#FFFFFF" />
-
-    </LinearLayout>
-
-    <LinearLayout
+    <TextView
+        android:id="@+id/tvPlanetClimate"
+        style="@style/Base.TextAppearance.AppCompat.Body1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:text="New Text"
+        android:textColor="#FFFFFF"
+        android:layout_below="@+id/tvPlanetGravity"
+        android:layout_alignStart="@+id/tvPlanetGravity" />
 
-        <TextView
-            android:id="@+id/tvPlanetDiameter"
-            style="@style/Base.TextAppearance.AppCompat.Body1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="New Text"
-            android:textColor="#FFFFFF" />
-
-    </LinearLayout>
-
-    <LinearLayout
+    <TextView
+        android:id="@+id/tvPlanetGravity"
+        style="@style/Base.TextAppearance.AppCompat.Body1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:text="New Text"
+        android:textColor="#FFFFFF"
+        android:layout_below="@+id/tvPlanetTerrain"
+        android:layout_toEndOf="@+id/imagePlanet" />
 
-        <TextView
-            android:id="@+id/tvPlanetClimate"
-            style="@style/Base.TextAppearance.AppCompat.Body1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="New Text"
-            android:textColor="#FFFFFF" />
-
-    </LinearLayout>
-
-    <LinearLayout
+    <TextView
+        android:id="@+id/tvPlanetTerrain"
+        style="@style/Base.TextAppearance.AppCompat.Body1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:text="New Text"
+        android:textColor="#FFFFFF"
+        android:layout_below="@+id/tvPlanetWater"
+        android:layout_toEndOf="@+id/imagePlanet" />
 
-        <TextView
-            android:id="@+id/tvPlanetGravity"
-            style="@style/Base.TextAppearance.AppCompat.Body1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="New Text"
-            android:textColor="#FFFFFF" />
-
-    </LinearLayout>
-
-    <LinearLayout
+    <TextView
+        android:id="@+id/tvPlanetWater"
+        style="@style/Base.TextAppearance.AppCompat.Body1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:text="New Text"
+        android:textColor="#FFFFFF"
+        android:layout_below="@+id/tvPlanetPopulation"
+        android:layout_toEndOf="@+id/imagePlanet" />
 
-        <TextView
-            android:id="@+id/tvPlanetTerrain"
-            style="@style/Base.TextAppearance.AppCompat.Body1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="New Text"
-            android:textColor="#FFFFFF" />
-
-    </LinearLayout>
-
-    <LinearLayout
+    <TextView
+        android:id="@+id/tvPlanetPopulation"
+        style="@style/Base.TextAppearance.AppCompat.Body1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="1">
+        android:text="New Text"
+        android:textColor="#FFFFFF"
+        android:layout_below="@+id/tvPlanetName"
+        android:layout_toEndOf="@+id/imagePlanet" />
 
-        <TextView
-            android:id="@+id/tvPlanetWater"
-            style="@style/Base.TextAppearance.AppCompat.Body1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="New Text"
-            android:textColor="#FFFFFF" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:id="@+id/tvPlanetPopulation"
-            style="@style/Base.TextAppearance.AppCompat.Body1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="New Text"
-            android:textColor="#FFFFFF" />
-    </LinearLayout>
-
-</LinearLayout>
+</RelativeLayout>

@@ -54,7 +54,7 @@ public class PlanetsActivityFragment extends Fragment {
 
     public void refreshPlanets(){
         RetroFit planet1 = new RetroFit();
-        planet1.mostrarPlanetas(planetAdapter);
+        planet1.downloadPlanetas(planetAdapter);
     }
 
 }

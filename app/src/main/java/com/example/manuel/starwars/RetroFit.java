@@ -34,9 +34,6 @@ public class RetroFit {
 
     private final InterfazStarWarsApi service;
     private final String BASE_URL = "http://swapi.co/api/";
-    private int PAGECHARACTERS = 1;
-    private int PAGEPLANETS = 1;
-    private int PAGESTARSHIPS = 1;
 
     //Constructor de la clase con el builder
     public RetroFit() {
@@ -49,79 +46,108 @@ public class RetroFit {
     }
 
     //Metodo que hace la llamada a la API (Characters)
-    public void mostrarCharacters(final CharacterAdapter adapter) {
-        //Llamada al servicio SWAPI con el metodo de la interfaz
-        Call<com.example.manuel.starwars.charactersJSON.Example> llamadaCharacter = service.characters(PAGECHARACTERS);
+    public void downloadCharacters(final CharacterAdapter adapter) {
 
-        //Cuando recibe la respuesta la pone en cola
-        llamadaCharacter.enqueue(new Callback<com.example.manuel.starwars.charactersJSON.Example>() {
+        adapter.clear();
 
-            @Override
-            public void onResponse(Response<com.example.manuel.starwars.charactersJSON.Example> response, Retrofit retrofit) {
+        //Para recorrer las paginas
+        for (int i = 9; i > 0 ; i--) {
 
-                com.example.manuel.starwars.charactersJSON.Example character = response.body();
+            //Llamada al servicio SWAPI con el metodo de la interfaz
+            Call<com.example.manuel.starwars.charactersJSON.Example> llamadaCharacter = service.characters(i);
 
-                adapter.clear();
-                Log.i("Verificar CHARACTERS", character.getResults() + "");
-                adapter.addAll(character.getResults());
-            }
+            //Cuando recibe la respuesta la pone en cola
+            llamadaCharacter.enqueue(new Callback<com.example.manuel.starwars.charactersJSON.Example>() {
+                @Override
+                public void onResponse(Response<com.example.manuel.starwars.charactersJSON.Example> response, Retrofit retrofit) {
 
-            @Override
-            public void onFailure(Throwable t) {
-                Log.e("Update characater", Arrays.toString(t.getStackTrace()));
-            }
-        });
-    }
+                    com.example.manuel.starwars.charactersJSON.Example character = response.body();
 
-    //Metodo que hace la llamada a la API (Planetas)
-    public void mostrarPlanetas(final PlanetAdapter adapter1) {
-
-        //Llamada al servicio SWAPI con el metodo de la interfaz
-        Call<com.example.manuel.starwars.planetsJSON.Example> llamadaPlanet = service.planets(PAGEPLANETS);
-
-        //Cuando recibe la respuesta la pone en cola
-        llamadaPlanet.enqueue(new Callback<com.example.manuel.starwars.planetsJSON.Example>() {
-
-            @Override
-            public void onResponse(Response<com.example.manuel.starwars.planetsJSON.Example> response, Retrofit retrofit) {
-
-                com.example.manuel.starwars.planetsJSON.Example planet = response.body();
-
-                adapter1.clear();
-                Log.i("Verificar PLANETS", planet.getResults() + "");
-                adapter1.addAll(planet.getResults());
-            }
-
-            @Override
-            public void onFailure(Throwable t) {
-                Log.e("Update characater", Arrays.toString(t.getStackTrace()));
-            }
-        });
-
-    }
-    //Metodo que hace la llamada a la API (Planetas)
-    public void mostrarNaves(final StarshipAdapter adapter2) {
-
-        //Llamada al servicio SWAPI con el metodo de la interfaz
-        Call<com.example.manuel.starwars.starshipsJSON.Example> llamadaStarship = service.starships(PAGESTARSHIPS);
-
-        //Cuando recibe la respuesta la pone en cola
-        llamadaStarship.enqueue(new Callback<com.example.manuel.starwars.starshipsJSON.Example>() {
-
-            @Override
-            public void onResponse(Response<com.example.manuel.starwars.starshipsJSON.Example> response, Retrofit retrofit) {
-
-                com.example.manuel.starwars.starshipsJSON.Example starship = response.body();
-
-                adapter2.clear();
-                Log.i("Verificar STARSHIP", starship.getResults() + "");
-                adapter2.addAll(starship.getResults());
-            }
-            @Override
-            public void onFailure(Throwable t) {
-                Log.e("Update starship", Arrays.toString(t.getStackTrace()));
-            }
-        });
+                    Log.i("Verificar CHARACTERS", character.getResults() + "");
+                    adapter.addAll(character.getResults());
+                }
+                @Override
+                public void onFailure(Throwable t) {
+                    Log.e("Update characater", Arrays.toString(t.getStackTrace()));
+                }
+            });
         }
-
     }
+
+    //Metodo que hace la llamada a la API (Planetas)
+    public void downloadPlanetas(final PlanetAdapter adapter1) {
+
+        adapter1.clear();
+
+        //Para recorrer las paginas
+        for (int i = 7; i > 0 ; i--) {
+            //Llamada al servicio SWAPI con el metodo de la interfaz
+            Call<com.example.manuel.starwars.planetsJSON.Example> llamadaPlanet = service.planets(i);
+
+            //Cuando recibe la respuesta la pone en cola
+            llamadaPlanet.enqueue(new Callback<com.example.manuel.starwars.planetsJSON.Example>() {
+
+                @Override
+                public void onResponse(Response<com.example.manuel.starwars.planetsJSON.Example> response, Retrofit retrofit) {
+
+                    com.example.manuel.starwars.planetsJSON.Example planet = response.body();
+
+                    Log.i("Verificar PLANETS", planet.getResults() + "");
+                    Log.i("Verificar PLANET", planet.getResults().get(0).getPopulation() + "");
+                    Log.i("Verificar PLANET", planet.getResults().get(0).getClimate() + "");
+                    Log.i("Verificar PLANET", planet.getResults().get(0).getCreated() + "");
+                    Log.i("Verificar PLANET", planet.getResults().get(0).getDiameter() + "");
+                    Log.i("Verificar PLANET", planet.getResults().get(0).getEdited() + "");
+                    Log.i("Verificar PLANET", planet.getResults().get(0).getGravity() + "");
+                    Log.i("Verificar PLANET", planet.getResults().get(0).getName() + "");
+                    Log.i("Verificar PLANET", planet.getResults().get(0).getOrbitalPeriod() + "");
+                    Log.i("Verificar PLANET", planet.getResults().get(0).getTerrain() + "");
+                    Log.i("Verificar PLANET", planet.getResults().get(0).getRotationPeriod() + "");
+                    Log.i("Verificar PLANET", planet.getResults().get(0).getSurfaceWater() + "");
+                    Log.i("Verificar PLANET", planet.getResults().get(0).getResidents() + "");
+                    Log.i("Verificar PLANET", planet.getResults().get(0).getUrl() + "");
+                    Log.i("Verificar PLANET", planet.getResults().get(0).getFilms() + "");
+
+
+                    adapter1.addAll(planet.getResults());
+                }
+
+                @Override
+                public void onFailure(Throwable t) {
+                    Log.e("Update characater", Arrays.toString(t.getStackTrace()));
+                }
+            });
+        }
+    }
+    //Metodo que hace la llamada a la API (Planetas)
+    public void downloadNaves(final StarshipAdapter adapter2) {
+
+        adapter2.clear();
+
+        //Para recorrer las paginas
+        for (int i = 1; i < 5 ; i++) {
+
+            //Llamada al servicio SWAPI con el metodo de la interfaz
+            Call<com.example.manuel.starwars.starshipsJSON.Example> llamadaStarship = service.starships(i);
+
+            //Cuando recibe la respuesta la pone en cola
+            llamadaStarship.enqueue(new Callback<com.example.manuel.starwars.starshipsJSON.Example>() {
+
+                @Override
+                public void onResponse(Response<com.example.manuel.starwars.starshipsJSON.Example> response, Retrofit retrofit) {
+
+                    com.example.manuel.starwars.starshipsJSON.Example starship = response.body();
+
+                    Log.i("Verificar STARSHIP", starship.getResults() + "");
+                    adapter2.addAll(starship.getResults());
+                }
+
+                @Override
+                public void onFailure(Throwable t) {
+                    Log.e("Update starship", Arrays.toString(t.getStackTrace()));
+                }
+            });
+        }
+    }
+
+}

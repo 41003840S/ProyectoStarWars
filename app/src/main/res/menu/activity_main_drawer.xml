@@ -20,6 +20,15 @@
             android:title="Movies" />
     </group>
 
+    <item android:title="News">
+        <menu>
+            <item
+                android:id="@+id/nav_news"
+                android:icon="@android:drawable/ic_dialog_info"
+                android:title="Coming Soon" />
+        </menu>
+    </item>
+
     <item android:title="Preferences">
         <menu>
             <item

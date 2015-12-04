@@ -57,7 +57,7 @@ public class CharacterAdapter extends ArrayAdapter<Result> {
             convertView.setBackgroundResource(R.drawable.layoutsoldado2);
         } else {
             convertView.setBackgroundResource(R.drawable.layoutdarth);
-            nombre.setTextAlignment((View.TEXT_ALIGNMENT_VIEW_END));
+            nombre.setTextAlignment((View.TEXT_ALIGNMENT_TEXT_END));
             altura.setTextAlignment((View.TEXT_ALIGNMENT_TEXT_END));
             masa.setTextAlignment((View.TEXT_ALIGNMENT_TEXT_END));
             pelo.setTextAlignment((View.TEXT_ALIGNMENT_TEXT_END));

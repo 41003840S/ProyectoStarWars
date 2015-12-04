@@ -47,17 +47,38 @@ public class StarshipAdapter extends ArrayAdapter<Result> {
 
         //Metemos los datos de los objetos provinientes de la BD en el layout
         starshipNombre.setText(resultItem.getName());
-        starshipModelo.setText("MODEL: " + resultItem.getModel());
+        starshipModelo.setText(resultItem.getModel());
         starshipCoste.setText("COST: " + resultItem.getCostInCredits() + " Credits");
         starshipLongitud.setText("LENGHT: " + resultItem.getLength());
         starshipVelocidad.setText("SPEED: " + resultItem.getMaxAtmospheringSpeed());
         starshipTripulacion.setText("CREW: " + resultItem.getCrew());
-        starshipPasajeros.setText("PASSENGERS: " + resultItem.getPassengers());
-        starshipCarga.setText("CARGO: " + resultItem.getCargoCapacity());
+        starshipPasajeros.setText("PASSENGERS: " + resultItem.getPassengers() + " passengers");
+        starshipCarga.setText("CARGO: " + resultItem.getCargoCapacity() + " Kg");
         starshipConsumible.setText("CONSUMABLES: " + resultItem.getConsumables());
         starshipHyper.setText("HYPER DRIVE: " + resultItem.getHyperdriveRating());
         starshipMglt.setText("MEGA LIGHT: " + resultItem.getMGLT());
         starshipClase.setText("CLASS: " + resultItem.getStarshipClass());
+
+        //Si la posicion es par o impar
+        if (position % 2 == 1) {
+            convertView.setBackgroundResource(R.drawable.space2);
+        } else {
+            convertView.setBackgroundResource(R.drawable.space1);
+            starshipNombre.setTextAlignment((View.TEXT_ALIGNMENT_TEXT_END));
+            starshipModelo.setTextAlignment((View.TEXT_ALIGNMENT_TEXT_END));
+            starshipCoste.setTextAlignment((View.TEXT_ALIGNMENT_TEXT_END));
+            starshipLongitud.setTextAlignment((View.TEXT_ALIGNMENT_TEXT_END));
+            starshipVelocidad.setTextAlignment((View.TEXT_ALIGNMENT_TEXT_END));
+            starshipTripulacion.setTextAlignment((View.TEXT_ALIGNMENT_TEXT_END));
+            starshipPasajeros.setTextAlignment((View.TEXT_ALIGNMENT_TEXT_END));
+            starshipCarga.setTextAlignment((View.TEXT_ALIGNMENT_TEXT_END));
+            starshipConsumible.setTextAlignment((View.TEXT_ALIGNMENT_TEXT_END));
+            starshipHyper.setTextAlignment((View.TEXT_ALIGNMENT_TEXT_END));
+            starshipPasajeros.setTextAlignment((View.TEXT_ALIGNMENT_TEXT_END));
+            starshipMglt.setTextAlignment((View.TEXT_ALIGNMENT_TEXT_END));
+            starshipClase.setTextAlignment((View.TEXT_ALIGNMENT_TEXT_END));
+
+        }
 
         return convertView;
 

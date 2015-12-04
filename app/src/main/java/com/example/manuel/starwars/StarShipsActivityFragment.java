@@ -10,7 +10,6 @@ import android.widget.ListView;
 import com.example.manuel.starwars.starshipsJSON.Result;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -54,6 +53,6 @@ public class StarShipsActivityFragment extends Fragment {
 
     public void refreshStarships(){
         RetroFit starship1 = new RetroFit();
-        starship1.mostrarNaves(starshipAdapter);
+        starship1.downloadNaves(starshipAdapter);
     }
 }

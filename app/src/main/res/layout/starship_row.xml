@@ -30,9 +30,11 @@
             android:layout_height="wrap_content"
             android:text="tvStarshipModel"
             android:id="@+id/tvStarshipModel"
-            style="@style/Base.TextAppearance.AppCompat.Body1"
+            style="@style/Base.TextAppearance.AppCompat.Medium"
+            android:textStyle="italic"
             android:textColor="#FFFFFF"
             android:layout_gravity="center_horizontal" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -183,6 +185,8 @@
             style="@style/Base.TextAppearance.AppCompat.Body1"
             android:textColor="#FFFFFF"
             android:layout_gravity="center_horizontal" />
+
+
     </LinearLayout>
 
 </LinearLayout>
