@@ -10,14 +10,24 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.manuel.starwars.sagamoviesJSON.Example;
+import com.example.manuel.starwars.sagamoviesJSON.Item;
+import com.squareup.picasso.Picasso;
+
+import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class MoviesActivity extends AppCompatActivity {
 
@@ -35,7 +45,6 @@ public class MoviesActivity extends AppCompatActivity {
      * The {@link ViewPager} that will host the section contents.
      */
     private ViewPager mViewPager;
-    private ArrayAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +61,6 @@ public class MoviesActivity extends AppCompatActivity {
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
-
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -104,11 +112,12 @@ public class MoviesActivity extends AppCompatActivity {
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
             return PlaceholderFragment.newInstance(position + 1);
+
         }
 
         @Override
         public int getCount() {
-            // Show 3 total pages.
+            // Show 6 total pages.
             return 6;
         }
 
@@ -116,17 +125,17 @@ public class MoviesActivity extends AppCompatActivity {
         public CharSequence getPageTitle(int position) {
             switch (position) {
                 case 0:
-                    return "SECTION 1";
+                    return "THE PHANTOM MENACE";
                 case 1:
-                    return "SECTION 2";
+                    return "ATTACK OF THE CLONES";
                 case 2:
-                    return "SECTION 3";
+                    return "REVENGE OF THE SITH";
                 case 3:
-                    return "SECTION 4";
+                    return "A NEW HOPE";
                 case 4:
-                    return "SECTION 5";
+                    return "THE EMPIRE STRIKES BACK";
                 case 5:
-                    return "SECTION 6";
+                    return "RETURN OF THE JEDI";
             }
             return null;
         }
@@ -158,11 +167,35 @@ public class MoviesActivity extends AppCompatActivity {
         }
 
         @Override
+        public void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+        }
+
+        @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
+
+
             View rootView = inflater.inflate(R.layout.fragment_movies, container, false);
-            TextView textView = (TextView) rootView.findViewById(R.id.section_label);
-            textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
+
+
+            /*int posicion = getArguments().getInt(ARG_SECTION_NUMBER);
+
+            //Enlazamos las variables con las ids
+            TextView tvTitulo = (TextView) rootView.findViewById(R.id.tvTitle);
+            TextView tvPopularidad = (TextView) rootView.findViewById(R.id.tvCriticsScore);
+            TextView tvDescripcion = (TextView) rootView.findViewById(R.id.tvSynopsis);
+            ImageView ivPosterImage = (ImageView) rootView.findViewById(R.id.ivPoster);
+
+            if(posicion == 0){
+                //Metemos los datos de los objetos provinientes del JSON en el layout
+                Log.i("Verificar Recibe", pelis.get(0).getTitle() + "");
+                tvTitulo.setText(pelis.get(0).getTitle());
+                tvPopularidad.setText(decimal.format(pelis.get(0).getPopularity()) + "%");
+                tvDescripcion.setText(pelis.get(0).getOverview());
+                Picasso.with(getContext()).load(POSTERURL + POSTERSIZE + pelis.get(0).getPosterPath()).fit().into(ivPosterImage);
+            }*/
+
             return rootView;
         }
     }

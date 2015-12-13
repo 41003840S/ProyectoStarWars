@@ -1,0 +1,40 @@
+{
+  "fields": [
+    {
+      "name": "name",
+      "type": "String"
+    },
+    {
+      "name": "rotationPeriod",
+      "type": "String"
+    },
+    {
+      "name": "orbitalPeriod",
+      "type": "String"
+    },
+    {
+      "name": "diameter",
+      "type": "String"
+    },
+    {
+      "name": "climate",
+      "type": "String"
+    },
+    {
+      "name": "gravity",
+      "type": "String"
+    },
+    {
+      "name": "terrain",
+      "type": "String"
+    },
+    {
+      "name": "surfaceWater",
+      "type": "String"
+    },
+    {
+      "name": "population",
+      "type": "String"
+    }
+  ]
+}

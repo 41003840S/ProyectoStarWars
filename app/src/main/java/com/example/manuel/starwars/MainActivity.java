@@ -137,13 +137,13 @@ public class MainActivity extends AppCompatActivity
 
             RetroFit llamadas = new RetroFit();
 
-            /*llamadas.downloadCharacters(adapter);
+           /* llamadas.downloadCharacters(adapter);
             llamadas.downloadPlanetas(adapter);
             llamadas.downloadNaves(adapter);*/
 
             RetroFitMovies movie = new RetroFitMovies();
 
-            //movie.downloadMovies(adapter);
+            movie.downloadMovies();
 
             return null;
         }

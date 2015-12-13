@@ -1,0 +1,13 @@
+{
+  "syntaxVersion": 3,
+  "projectPackageId": "com.example.manuel.starwars",
+  "authority": "com.example.manuel.starwars.provider",
+  "providerJavaPackage": "com.example.manuel.starwars.provider",
+  "providerClassName": "StarWarsProvider",
+  "sqliteOpenHelperClassName": "StarWarsSQLiteOpenHelper",
+  "sqliteOpenHelperCallbacksClassName": "StarWarsSQLiteOpenHelperCallbacks",
+  "databaseFileName": "starwars.db",
+  "databaseVersion": 1,
+  "enableForeignKeys": true,
+  "useAnnotations": true
+}

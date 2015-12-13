@@ -1,0 +1,56 @@
+{
+  "fields": [
+    {
+      "name": "name",
+      "type": "String"
+    },
+    {
+      "name": "model",
+      "type": "String"
+    },
+    {
+      "name": "manufacturer",
+      "type": "String"
+    },
+    {
+      "name": "costInCredits",
+      "type": "String"
+    },
+    {
+      "name": "length",
+      "type": "String"
+    },
+    {
+      "name": "maxAtmospheringSpeed",
+      "type": "String"
+    },
+    {
+      "name": "crew",
+      "type": "String"
+    },
+    {
+      "name": "passengers",
+      "type": "String"
+    },
+    {
+      "name": "cargoCapacity",
+      "type": "String"
+    },
+    {
+      "name": "consumables",
+      "type": "String"
+    },
+    {
+      "name": "hyperdriveRating",
+      "type": "String"
+    },
+    {
+      "name": "mglt",
+      "type": "String"
+    },
+    {
+      "name": "starshipClass",
+      "type": "String"
+    }
+  ]
+}

@@ -77,7 +77,6 @@ public class StarshipAdapter extends ArrayAdapter<Result> {
             starshipPasajeros.setTextAlignment((View.TEXT_ALIGNMENT_TEXT_END));
             starshipMglt.setTextAlignment((View.TEXT_ALIGNMENT_TEXT_END));
             starshipClase.setTextAlignment((View.TEXT_ALIGNMENT_TEXT_END));
-
         }
 
         return convertView;

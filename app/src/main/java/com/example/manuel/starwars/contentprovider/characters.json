@@ -1,0 +1,36 @@
+{
+  "fields": [
+    {
+      "name": "name",
+      "type": "String"
+    },
+    {
+      "name": "height",
+      "type": "String"
+    },
+    {
+      "name": "mass",
+      "type": "String"
+    },
+    {
+      "name": "hairColor",
+      "type": "String"
+    },
+    {
+      "name": "skinColor",
+      "type": "String"
+    },
+    {
+      "name": "eyeColor",
+      "type": "String"
+    },
+    {
+      "name": "birthYear",
+      "type": "String"
+    },
+    {
+      "name": "gender",
+      "type": "String"
+    }
+  ]
+}

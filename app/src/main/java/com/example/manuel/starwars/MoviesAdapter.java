@@ -27,6 +27,7 @@ public class MoviesAdapter extends ArrayAdapter<Item> {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+
         //Obtenemos el objeto de la posicion correspondiente
         Item resultItem = getItem(position);
 
