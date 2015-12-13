@@ -1,22 +1,22 @@
 package com.example.manuel.starwars;
 
+import android.database.Cursor;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.content.CursorLoader;
+import android.support.v4.content.Loader;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
-import com.example.manuel.starwars.planetsJSON.Result;
-
-import java.util.ArrayList;
+import com.example.manuel.starwars.provider.planet.PlanetColumns;
 
 
-public class PlanetsActivityFragment extends Fragment {
+public class PlanetsActivityFragment extends Fragment implements android.support.v4.app.LoaderManager.LoaderCallbacks<Cursor>{
 
     ListView listaPlanetas;
     PlanetAdapter planetAdapter;
-    ArrayList<Result> items1;
 
     public PlanetsActivityFragment() {
     }
@@ -24,7 +24,7 @@ public class PlanetsActivityFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        refreshPlanets();
+
     }
 
     @Override
@@ -39,12 +39,40 @@ public class PlanetsActivityFragment extends Fragment {
 
         View PlanetsFragment = inflater.inflate(R.layout.fragment_planets, container, false);
 
+        //Inicializamos el Loader
+        getLoaderManager().initLoader(0, null, this);
+
         listaPlanetas = (ListView) PlanetsFragment.findViewById(R.id.listPlanets);
 
-        items1 = new ArrayList<>();
 
         //Enlazamos con el adaptador personalizado los datos con el ListView
-        planetAdapter = new PlanetAdapter(getContext(),R.layout.planet_row, items1);
+        planetAdapter = new PlanetAdapter(getContext(),
+                R.layout.planet_row,
+                null,
+                new String[]{
+                        PlanetColumns.NAME,
+                        PlanetColumns.ROTATIONPERIOD,
+                        PlanetColumns.ORBITALPERIOD,
+                        PlanetColumns.DIAMETER,
+                        PlanetColumns.CLIMATE,
+                        PlanetColumns.GRAVITY,
+                        PlanetColumns.TERRAIN,
+                        PlanetColumns.SURFACEWATER,
+                        PlanetColumns.POPULATION
+
+                },
+                new int[]{
+                        R.id.tvPlanetName,
+                        R.id.tvPlanetRotation,
+                        R.id.tvPlanetOrbital,
+                        R.id.tvPlanetDiameter,
+                        R.id.tvPlanetClimate,
+                        R.id.tvPlanetGravity,
+                        R.id.tvPlanetTerrain,
+                        R.id.tvPlanetWater,
+                        R.id.tvPlanetPopulation
+                },
+                0);
 
         listaPlanetas.setAdapter(planetAdapter);
 
@@ -52,9 +80,23 @@ public class PlanetsActivityFragment extends Fragment {
     }
 
 
-    public void refreshPlanets(){
-        RetroFit planet1 = new RetroFit();
-        planet1.downloadPlanetas(planetAdapter);
+    @Override
+    public Loader<Cursor> onCreateLoader(int id, Bundle args) {
+        return new CursorLoader(getContext(),
+                PlanetColumns.CONTENT_URI,
+                null,
+                null,
+                null,
+                "_id");
     }
 
+    @Override
+    public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
+        planetAdapter.swapCursor(data);
+    }
+
+    @Override
+    public void onLoaderReset(Loader<Cursor> loader) {
+        planetAdapter.swapCursor(null);
+    }
 }

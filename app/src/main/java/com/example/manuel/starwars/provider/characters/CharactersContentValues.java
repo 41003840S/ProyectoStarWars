@@ -69,43 +69,43 @@ public class CharactersContentValues extends AbstractContentValues {
         return this;
     }
 
-    public CharactersContentValues putHair(@Nullable String value) {
-        mContentValues.put(CharactersColumns.HAIR, value);
+    public CharactersContentValues putHaircolor(@Nullable String value) {
+        mContentValues.put(CharactersColumns.HAIRCOLOR, value);
         return this;
     }
 
-    public CharactersContentValues putHairNull() {
-        mContentValues.putNull(CharactersColumns.HAIR);
+    public CharactersContentValues putHaircolorNull() {
+        mContentValues.putNull(CharactersColumns.HAIRCOLOR);
         return this;
     }
 
-    public CharactersContentValues putSkin(@Nullable String value) {
-        mContentValues.put(CharactersColumns.SKIN, value);
+    public CharactersContentValues putSkincolor(@Nullable String value) {
+        mContentValues.put(CharactersColumns.SKINCOLOR, value);
         return this;
     }
 
-    public CharactersContentValues putSkinNull() {
-        mContentValues.putNull(CharactersColumns.SKIN);
+    public CharactersContentValues putSkincolorNull() {
+        mContentValues.putNull(CharactersColumns.SKINCOLOR);
         return this;
     }
 
-    public CharactersContentValues putEyes(@Nullable String value) {
-        mContentValues.put(CharactersColumns.EYES, value);
+    public CharactersContentValues putEyecolor(@Nullable String value) {
+        mContentValues.put(CharactersColumns.EYECOLOR, value);
         return this;
     }
 
-    public CharactersContentValues putEyesNull() {
-        mContentValues.putNull(CharactersColumns.EYES);
+    public CharactersContentValues putEyecolorNull() {
+        mContentValues.putNull(CharactersColumns.EYECOLOR);
         return this;
     }
 
-    public CharactersContentValues putBirth(@Nullable String value) {
-        mContentValues.put(CharactersColumns.BIRTH, value);
+    public CharactersContentValues putBirthyear(@Nullable String value) {
+        mContentValues.put(CharactersColumns.BIRTHYEAR, value);
         return this;
     }
 
-    public CharactersContentValues putBirthNull() {
-        mContentValues.putNull(CharactersColumns.BIRTH);
+    public CharactersContentValues putBirthyearNull() {
+        mContentValues.putNull(CharactersColumns.BIRTHYEAR);
         return this;
     }
 

@@ -198,163 +198,163 @@ public class CharactersSelection extends AbstractSelection<CharactersSelection> 
         return this;
     }
 
-    public CharactersSelection hair(String... value) {
-        addEquals(CharactersColumns.HAIR, value);
+    public CharactersSelection haircolor(String... value) {
+        addEquals(CharactersColumns.HAIRCOLOR, value);
         return this;
     }
 
-    public CharactersSelection hairNot(String... value) {
-        addNotEquals(CharactersColumns.HAIR, value);
+    public CharactersSelection haircolorNot(String... value) {
+        addNotEquals(CharactersColumns.HAIRCOLOR, value);
         return this;
     }
 
-    public CharactersSelection hairLike(String... value) {
-        addLike(CharactersColumns.HAIR, value);
+    public CharactersSelection haircolorLike(String... value) {
+        addLike(CharactersColumns.HAIRCOLOR, value);
         return this;
     }
 
-    public CharactersSelection hairContains(String... value) {
-        addContains(CharactersColumns.HAIR, value);
+    public CharactersSelection haircolorContains(String... value) {
+        addContains(CharactersColumns.HAIRCOLOR, value);
         return this;
     }
 
-    public CharactersSelection hairStartsWith(String... value) {
-        addStartsWith(CharactersColumns.HAIR, value);
+    public CharactersSelection haircolorStartsWith(String... value) {
+        addStartsWith(CharactersColumns.HAIRCOLOR, value);
         return this;
     }
 
-    public CharactersSelection hairEndsWith(String... value) {
-        addEndsWith(CharactersColumns.HAIR, value);
+    public CharactersSelection haircolorEndsWith(String... value) {
+        addEndsWith(CharactersColumns.HAIRCOLOR, value);
         return this;
     }
 
-    public CharactersSelection orderByHair(boolean desc) {
-        orderBy(CharactersColumns.HAIR, desc);
+    public CharactersSelection orderByHaircolor(boolean desc) {
+        orderBy(CharactersColumns.HAIRCOLOR, desc);
         return this;
     }
 
-    public CharactersSelection orderByHair() {
-        orderBy(CharactersColumns.HAIR, false);
+    public CharactersSelection orderByHaircolor() {
+        orderBy(CharactersColumns.HAIRCOLOR, false);
         return this;
     }
 
-    public CharactersSelection skin(String... value) {
-        addEquals(CharactersColumns.SKIN, value);
+    public CharactersSelection skincolor(String... value) {
+        addEquals(CharactersColumns.SKINCOLOR, value);
         return this;
     }
 
-    public CharactersSelection skinNot(String... value) {
-        addNotEquals(CharactersColumns.SKIN, value);
+    public CharactersSelection skincolorNot(String... value) {
+        addNotEquals(CharactersColumns.SKINCOLOR, value);
         return this;
     }
 
-    public CharactersSelection skinLike(String... value) {
-        addLike(CharactersColumns.SKIN, value);
+    public CharactersSelection skincolorLike(String... value) {
+        addLike(CharactersColumns.SKINCOLOR, value);
         return this;
     }
 
-    public CharactersSelection skinContains(String... value) {
-        addContains(CharactersColumns.SKIN, value);
+    public CharactersSelection skincolorContains(String... value) {
+        addContains(CharactersColumns.SKINCOLOR, value);
         return this;
     }
 
-    public CharactersSelection skinStartsWith(String... value) {
-        addStartsWith(CharactersColumns.SKIN, value);
+    public CharactersSelection skincolorStartsWith(String... value) {
+        addStartsWith(CharactersColumns.SKINCOLOR, value);
         return this;
     }
 
-    public CharactersSelection skinEndsWith(String... value) {
-        addEndsWith(CharactersColumns.SKIN, value);
+    public CharactersSelection skincolorEndsWith(String... value) {
+        addEndsWith(CharactersColumns.SKINCOLOR, value);
         return this;
     }
 
-    public CharactersSelection orderBySkin(boolean desc) {
-        orderBy(CharactersColumns.SKIN, desc);
+    public CharactersSelection orderBySkincolor(boolean desc) {
+        orderBy(CharactersColumns.SKINCOLOR, desc);
         return this;
     }
 
-    public CharactersSelection orderBySkin() {
-        orderBy(CharactersColumns.SKIN, false);
+    public CharactersSelection orderBySkincolor() {
+        orderBy(CharactersColumns.SKINCOLOR, false);
         return this;
     }
 
-    public CharactersSelection eyes(String... value) {
-        addEquals(CharactersColumns.EYES, value);
+    public CharactersSelection eyecolor(String... value) {
+        addEquals(CharactersColumns.EYECOLOR, value);
         return this;
     }
 
-    public CharactersSelection eyesNot(String... value) {
-        addNotEquals(CharactersColumns.EYES, value);
+    public CharactersSelection eyecolorNot(String... value) {
+        addNotEquals(CharactersColumns.EYECOLOR, value);
         return this;
     }
 
-    public CharactersSelection eyesLike(String... value) {
-        addLike(CharactersColumns.EYES, value);
+    public CharactersSelection eyecolorLike(String... value) {
+        addLike(CharactersColumns.EYECOLOR, value);
         return this;
     }
 
-    public CharactersSelection eyesContains(String... value) {
-        addContains(CharactersColumns.EYES, value);
+    public CharactersSelection eyecolorContains(String... value) {
+        addContains(CharactersColumns.EYECOLOR, value);
         return this;
     }
 
-    public CharactersSelection eyesStartsWith(String... value) {
-        addStartsWith(CharactersColumns.EYES, value);
+    public CharactersSelection eyecolorStartsWith(String... value) {
+        addStartsWith(CharactersColumns.EYECOLOR, value);
         return this;
     }
 
-    public CharactersSelection eyesEndsWith(String... value) {
-        addEndsWith(CharactersColumns.EYES, value);
+    public CharactersSelection eyecolorEndsWith(String... value) {
+        addEndsWith(CharactersColumns.EYECOLOR, value);
         return this;
     }
 
-    public CharactersSelection orderByEyes(boolean desc) {
-        orderBy(CharactersColumns.EYES, desc);
+    public CharactersSelection orderByEyecolor(boolean desc) {
+        orderBy(CharactersColumns.EYECOLOR, desc);
         return this;
     }
 
-    public CharactersSelection orderByEyes() {
-        orderBy(CharactersColumns.EYES, false);
+    public CharactersSelection orderByEyecolor() {
+        orderBy(CharactersColumns.EYECOLOR, false);
         return this;
     }
 
-    public CharactersSelection birth(String... value) {
-        addEquals(CharactersColumns.BIRTH, value);
+    public CharactersSelection birthyear(String... value) {
+        addEquals(CharactersColumns.BIRTHYEAR, value);
         return this;
     }
 
-    public CharactersSelection birthNot(String... value) {
-        addNotEquals(CharactersColumns.BIRTH, value);
+    public CharactersSelection birthyearNot(String... value) {
+        addNotEquals(CharactersColumns.BIRTHYEAR, value);
         return this;
     }
 
-    public CharactersSelection birthLike(String... value) {
-        addLike(CharactersColumns.BIRTH, value);
+    public CharactersSelection birthyearLike(String... value) {
+        addLike(CharactersColumns.BIRTHYEAR, value);
         return this;
     }
 
-    public CharactersSelection birthContains(String... value) {
-        addContains(CharactersColumns.BIRTH, value);
+    public CharactersSelection birthyearContains(String... value) {
+        addContains(CharactersColumns.BIRTHYEAR, value);
         return this;
     }
 
-    public CharactersSelection birthStartsWith(String... value) {
-        addStartsWith(CharactersColumns.BIRTH, value);
+    public CharactersSelection birthyearStartsWith(String... value) {
+        addStartsWith(CharactersColumns.BIRTHYEAR, value);
         return this;
     }
 
-    public CharactersSelection birthEndsWith(String... value) {
-        addEndsWith(CharactersColumns.BIRTH, value);
+    public CharactersSelection birthyearEndsWith(String... value) {
+        addEndsWith(CharactersColumns.BIRTHYEAR, value);
         return this;
     }
 
-    public CharactersSelection orderByBirth(boolean desc) {
-        orderBy(CharactersColumns.BIRTH, desc);
+    public CharactersSelection orderByBirthyear(boolean desc) {
+        orderBy(CharactersColumns.BIRTHYEAR, desc);
         return this;
     }
 
-    public CharactersSelection orderByBirth() {
-        orderBy(CharactersColumns.BIRTH, false);
+    public CharactersSelection orderByBirthyear() {
+        orderBy(CharactersColumns.BIRTHYEAR, false);
         return this;
     }
 

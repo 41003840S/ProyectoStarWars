@@ -1,33 +1,42 @@
 package com.example.manuel.starwars;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 
+import com.example.manuel.starwars.provider.starship.StarshipColumns;
+import com.example.manuel.starwars.provider.starship.StarshipCursor;
 import com.example.manuel.starwars.starshipsJSON.Result;
 
 import java.util.ArrayList;
 
 
-public class StarshipAdapter extends ArrayAdapter<Result> {
+public class StarshipAdapter extends SimpleCursorAdapter {
 
     TextView starshipNombre, starshipModelo, starshipCoste, starshipLongitud, starshipVelocidad, starshipTripulacion, starshipPasajeros, starshipCarga, starshipConsumible, starshipHyper, starshipMglt, starshipClase;
+    Context context;
 
-    public StarshipAdapter(Context context, int resource, ArrayList<Result> objects) {
-        super(context, resource, objects);
+    public StarshipAdapter(Context context, int layout, Cursor c, String[] from, int[] to, int flags) {
+        super(context, layout, c, from, to, flags);
+        this.context=context;
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        //Obtenemos el objeto de la posicion correspondiente
-        Result resultItem = getItem(position);
+
+        Cursor myCursor = getCursor();
+
+        StarshipCursor starshipCursor = new StarshipCursor(myCursor);
+        starshipCursor.moveToPosition(position);
 
         //Miramos si la View la esta reusando, sino es asi hinchamos la vista
         if (convertView == null) {
-            LayoutInflater inflater = LayoutInflater.from(getContext());
+            LayoutInflater inflater = LayoutInflater.from(context);
             convertView = inflater.inflate(R.layout.starship_row, parent, false);
         }
 
@@ -46,18 +55,18 @@ public class StarshipAdapter extends ArrayAdapter<Result> {
         starshipClase = (TextView) convertView.findViewById(R.id.tvStarshipClass);
 
         //Metemos los datos de los objetos provinientes de la BD en el layout
-        starshipNombre.setText(resultItem.getName());
-        starshipModelo.setText(resultItem.getModel());
-        starshipCoste.setText("COST: " + resultItem.getCostInCredits() + " Credits");
-        starshipLongitud.setText("LENGHT: " + resultItem.getLength());
-        starshipVelocidad.setText("SPEED: " + resultItem.getMaxAtmospheringSpeed());
-        starshipTripulacion.setText("CREW: " + resultItem.getCrew());
-        starshipPasajeros.setText("PASSENGERS: " + resultItem.getPassengers() + " passengers");
-        starshipCarga.setText("CARGO: " + resultItem.getCargoCapacity() + " Kg");
-        starshipConsumible.setText("CONSUMABLES: " + resultItem.getConsumables());
-        starshipHyper.setText("HYPER DRIVE: " + resultItem.getHyperdriveRating());
-        starshipMglt.setText("MEGA LIGHT: " + resultItem.getMGLT());
-        starshipClase.setText("CLASS: " + resultItem.getStarshipClass());
+        starshipNombre.setText(starshipCursor.getName());
+        starshipModelo.setText(starshipCursor.getModel());
+        starshipCoste.setText("COST: " + starshipCursor.getCostincredits() + " Credits");
+        starshipLongitud.setText("LENGHT: " + starshipCursor.getLength());
+        starshipVelocidad.setText("SPEED: " + starshipCursor.getMaxatmospheringspeed());
+        starshipTripulacion.setText("CREW: " + starshipCursor.getCrew());
+        starshipPasajeros.setText("PASSENGERS: " + starshipCursor.getPassengers() + " passengers");
+        starshipCarga.setText("CARGO: " + starshipCursor.getCargocapacity() + " Kg");
+        starshipConsumible.setText("CONSUMABLES: " + starshipCursor.getConsumables());
+        starshipHyper.setText("HYPER DRIVE: " + starshipCursor.getHyperdriverating());
+        starshipMglt.setText("MEGA LIGHT: " + starshipCursor.getMglt());
+        starshipClase.setText("CLASS: " + starshipCursor.getStarshipclass());
 
         //Si la posicion es par o impar
         if (position % 2 == 1) {

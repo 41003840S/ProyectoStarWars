@@ -1,38 +1,44 @@
 package com.example.manuel.starwars;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 
 import com.example.manuel.starwars.planetsJSON.Result;
+import com.example.manuel.starwars.provider.planet.PlanetCursor;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.Random;
 
-public class PlanetAdapter extends ArrayAdapter<Result> {
+public class PlanetAdapter extends SimpleCursorAdapter {
 
     TextView planetName, planetRotation, planetOrbitation, planetDiameter, planetClimate, planetGravity, planetTerrain, planetWater, planetPopulation;
     ImageView planeta;
+    Context context;
 
-
-    public PlanetAdapter(Context context, int resource, ArrayList<Result> objects) {
-        super(context, resource, objects);
+    public PlanetAdapter(Context context, int layout, Cursor c, String[] from, int[] to, int flags) {
+        super(context, layout, c, from, to, flags);
+        this.context=context;
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        //Obtenemos el objeto de la posicion correspondiente
-        Result resultItem = getItem(position);
+
+        Cursor myCursor = getCursor();
+        //myCursor.moveToPosition(position);
+        PlanetCursor planetCursor = new PlanetCursor(myCursor);
+        planetCursor.moveToPosition(position);
 
         //Miramos si la View la esta reusando, sino es asi hinchamos la vista
         if (convertView == null) {
-            LayoutInflater inflater = LayoutInflater.from(getContext());
+            LayoutInflater inflater = LayoutInflater.from(context);
             convertView = inflater.inflate(R.layout.planet_row, parent, false);
 
         }
@@ -50,15 +56,15 @@ public class PlanetAdapter extends ArrayAdapter<Result> {
         planeta = (ImageView) convertView.findViewById(R.id.imagePlanet);
 
         //Metemos los datos de los objetos provinientes de la BD en el layout
-        planetName.setText(resultItem.getName()+ "");
-        planetRotation.setText("ROTATION: " + resultItem.getRotationPeriod());
-        planetOrbitation.setText("ORBITATION: " + resultItem.getOrbitalPeriod());
-        planetDiameter.setText("DIAMETER: " + resultItem.getDiameter());
-        planetClimate.setText("CLIMATE: " + resultItem.getClimate());
-        planetGravity.setText("GRAVITY: " + resultItem.getGravity());
-        planetTerrain.setText("TERRAIN: " + resultItem.getTerrain());
-        planetWater.setText("WATER SURFACE: " + resultItem.getSurfaceWater());
-        planetPopulation.setText("POPULATION: " + resultItem.getPopulation());
+        planetName.setText(planetCursor.getName());
+        planetRotation.setText("ROTATION: " + planetCursor.getRotationperiod());
+        planetOrbitation.setText("ORBITATION: " + planetCursor.getOrbitalperiod());
+        planetDiameter.setText("DIAMETER: " + planetCursor.getDiameter());
+        planetClimate.setText("CLIMATE: " + planetCursor.getClimate());
+        planetGravity.setText("GRAVITY: " + planetCursor.getGravity());
+        planetTerrain.setText("TERRAIN: " + planetCursor.getTerrain());
+        planetWater.setText("WATER SURFACE: " + planetCursor.getSurfacewater());
+        planetPopulation.setText("POPULATION: " + planetCursor.getPopulation());
 
         int[] imagenes={R.drawable.p0,R.drawable.p1,R.drawable.p2,R.drawable.p3,R.drawable.p4,
                 R.drawable.p5,R.drawable.p6};

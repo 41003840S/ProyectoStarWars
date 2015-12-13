@@ -15,21 +15,18 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/mainTitle"
-        android:layout_marginTop="36dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        style="@style/Base.TextAppearance.AppCompat.Display1"
-        android:text="Hello World" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:text="New Text"
         android:id="@+id/mainDescription"
-        android:layout_marginTop="34dp"
-        android:layout_below="@+id/mainTitle"
+        style="@style/Base.TextAppearance.AppCompat.Body2"
+        android:layout_below="@+id/mainLogo"
         android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        style="@style/Base.TextAppearance.AppCompat.Body1" />
+        android:layout_marginTop="27dp"
+        android:layout_alignParentEnd="true" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:id="@+id/mainLogo"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>

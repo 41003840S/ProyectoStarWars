@@ -34,32 +34,32 @@ public interface CharactersModel extends BaseModel {
     String getMass();
 
     /**
-     * Get the {@code hair} value.
+     * Get the {@code haircolor} value.
      * Can be {@code null}.
      */
     @Nullable
-    String getHair();
+    String getHaircolor();
 
     /**
-     * Get the {@code skin} value.
+     * Get the {@code skincolor} value.
      * Can be {@code null}.
      */
     @Nullable
-    String getSkin();
+    String getSkincolor();
 
     /**
-     * Get the {@code eyes} value.
+     * Get the {@code eyecolor} value.
      * Can be {@code null}.
      */
     @Nullable
-    String getEyes();
+    String getEyecolor();
 
     /**
-     * Get the {@code birth} value.
+     * Get the {@code birthyear} value.
      * Can be {@code null}.
      */
     @Nullable
-    String getBirth();
+    String getBirthyear();
 
     /**
      * Get the {@code gender} value.

@@ -57,42 +57,42 @@ public class CharactersCursor extends AbstractCursor implements CharactersModel 
     }
 
     /**
-     * Get the {@code hair} value.
+     * Get the {@code haircolor} value.
      * Can be {@code null}.
      */
     @Nullable
-    public String getHair() {
-        String res = getStringOrNull(CharactersColumns.HAIR);
+    public String getHaircolor() {
+        String res = getStringOrNull(CharactersColumns.HAIRCOLOR);
         return res;
     }
 
     /**
-     * Get the {@code skin} value.
+     * Get the {@code skincolor} value.
      * Can be {@code null}.
      */
     @Nullable
-    public String getSkin() {
-        String res = getStringOrNull(CharactersColumns.SKIN);
+    public String getSkincolor() {
+        String res = getStringOrNull(CharactersColumns.SKINCOLOR);
         return res;
     }
 
     /**
-     * Get the {@code eyes} value.
+     * Get the {@code eyecolor} value.
      * Can be {@code null}.
      */
     @Nullable
-    public String getEyes() {
-        String res = getStringOrNull(CharactersColumns.EYES);
+    public String getEyecolor() {
+        String res = getStringOrNull(CharactersColumns.EYECOLOR);
         return res;
     }
 
     /**
-     * Get the {@code birth} value.
+     * Get the {@code birthyear} value.
      * Can be {@code null}.
      */
     @Nullable
-    public String getBirth() {
-        String res = getStringOrNull(CharactersColumns.BIRTH);
+    public String getBirthyear() {
+        String res = getStringOrNull(CharactersColumns.BIRTHYEAR);
         return res;
     }
 

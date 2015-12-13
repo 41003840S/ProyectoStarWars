@@ -1,13 +1,15 @@
 package com.example.manuel.starwars;
 
+
 import android.content.ActivityNotFoundException;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -17,13 +19,21 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.example.manuel.starwars.provider.characters.CharactersColumns;
+import com.example.manuel.starwars.provider.movies.MoviesColumns;
+import com.example.manuel.starwars.provider.planet.PlanetColumns;
+import com.example.manuel.starwars.provider.starship.StarshipColumns;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     Intent i;
-    TextView titulo, descripcion;
+    TextView descripcion;
+    ImageView logo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,10 +42,13 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        titulo = (TextView) findViewById(R.id.mainTitle);
-        titulo.setText("Star Wars API");
+        logo = (ImageView) findViewById(R.id.mainLogo);
+        logo.setImageResource(R.drawable.titulo);
+
         descripcion = (TextView) findViewById(R.id.mainDescription);
-        descripcion.setText("Podras consultar información acerca de los personajes, planetas y naves de la trilogía de Star Wars");
+        descripcion.setText("This APP provides you information about Star Wars Saga, the app feeds itself from an " +
+                "online database called SWAPI.\n\nHere You will find data of:\n\n-Characters\n\n-Planets" +
+                "\n\n-Starships\n\n-Movies\n\n-And more....");
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -82,12 +95,57 @@ public class MainActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_refresh) {
-            RefreshBackground downloadMoviesTask = new RefreshBackground();
-            downloadMoviesTask.execute();
-            return true;
+
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MainActivity.this);
+            alertDialogBuilder.setTitle("INTERNET CONNECTION");
+            alertDialogBuilder.setMessage("You are going to download some data. Make sure you have your WIFI connection enabled otherwise" +
+                    " this could result in costs with your operator.\nDownload data?");
+
+            // set positive button: Yes message
+            alertDialogBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+
+                    //Borramos todas las tablas
+                    getBaseContext().getContentResolver().delete(
+                            CharactersColumns.CONTENT_URI,
+                            null,
+                            null);
+                    getBaseContext().getContentResolver().delete(
+                            PlanetColumns.CONTENT_URI,
+                            null,
+                            null);
+                    getBaseContext().getContentResolver().delete(
+                            StarshipColumns.CONTENT_URI,
+                            null,
+                            null);
+                    getBaseContext().getContentResolver().delete(
+                            MoviesColumns.CONTENT_URI,
+                            null,
+                            null);
+
+                    //Hacemos la llamada para añadir el contenido de las tablas
+                    RefreshBackground downloadMoviesTask = new RefreshBackground();
+                    downloadMoviesTask.execute();
+
+                }
+            });
+            // set negative button: No message
+            alertDialogBuilder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                    // cancel the alert box and put a Toast to the user
+                    dialog.cancel();
+                    Toast.makeText(getApplicationContext(), "You chose a negative answer",
+                            Toast.LENGTH_LONG).show();
+                }
+            });
+
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        // show alert
+        alertDialog.show();
+        return true;
         }
 
-        return super.onOptionsItemSelected(item);
+    return super.onOptionsItemSelected(item);
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
@@ -118,10 +176,9 @@ public class MainActivity extends AppCompatActivity
                 startActivity(intent);
         }
         }else if (id == R.id.nav_settings) {
-            i = new Intent(this, SettingsActivity.class);
-            startActivity(i);
+            //i = new Intent(this, SettingsActivity.class);
+            //startActivity(i);
         }
-
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -136,14 +193,12 @@ public class MainActivity extends AppCompatActivity
         protected Object doInBackground(Object[] params) {
 
             RetroFit llamadas = new RetroFit();
-
-           /* llamadas.downloadCharacters(adapter);
-            llamadas.downloadPlanetas(adapter);
-            llamadas.downloadNaves(adapter);*/
+            llamadas.downloadCharacters(getBaseContext());
+            llamadas.downloadPlanetas(getBaseContext());
+            llamadas.downloadNaves(getBaseContext());
 
             RetroFitMovies movie = new RetroFitMovies();
-
-            movie.downloadMovies();
+            movie.downloadMovies(getBaseContext());
 
             return null;
         }

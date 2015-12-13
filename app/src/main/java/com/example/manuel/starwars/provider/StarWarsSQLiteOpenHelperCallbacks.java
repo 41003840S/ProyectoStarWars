@@ -12,8 +12,8 @@ import com.example.manuel.starwars.BuildConfig;
  *
  * This file will not be overwritten if you re-run the content provider generator.
  */
-public class CharacterSQLiteOpenHelperCallbacks {
-    private static final String TAG = CharacterSQLiteOpenHelperCallbacks.class.getSimpleName();
+public class StarWarsSQLiteOpenHelperCallbacks {
+    private static final String TAG = StarWarsSQLiteOpenHelperCallbacks.class.getSimpleName();
 
     public void onOpen(final Context context, final SQLiteDatabase db) {
         if (BuildConfig.DEBUG) Log.d(TAG, "onOpen");

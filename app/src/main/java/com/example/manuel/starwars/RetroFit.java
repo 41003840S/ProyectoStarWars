@@ -1,7 +1,16 @@
 package com.example.manuel.starwars;
 
 
+import android.content.Context;
 import android.util.Log;
+
+import com.example.manuel.starwars.charactersJSON.Result;
+import com.example.manuel.starwars.provider.characters.CharactersColumns;
+import com.example.manuel.starwars.provider.characters.CharactersContentValues;
+import com.example.manuel.starwars.provider.planet.PlanetColumns;
+import com.example.manuel.starwars.provider.planet.PlanetContentValues;
+import com.example.manuel.starwars.provider.starship.StarshipColumns;
+import com.example.manuel.starwars.provider.starship.StarshipContentValues;
 
 import java.util.Arrays;
 
@@ -46,9 +55,7 @@ public class RetroFit {
     }
 
     //Metodo que hace la llamada a la API (Characters)
-    public void downloadCharacters(final CharacterAdapter adapter) {
-
-        adapter.clear();
+    public void downloadCharacters(final Context context) {
 
         //Para recorrer las paginas
         for (int i = 9; i > 0 ; i--) {
@@ -63,8 +70,21 @@ public class RetroFit {
 
                     com.example.manuel.starwars.charactersJSON.Example character = response.body();
 
-                    Log.i("Verificar CHARACTERS", character.getResults() + "");
-                    adapter.addAll(character.getResults());
+                    for (Result result : character.getResults()) {
+
+                        CharactersContentValues valores = new CharactersContentValues();
+
+                        valores.putName(result.getName());
+                        valores.putHeight(result.getHeight());
+                        valores.putMass(result.getMass());
+                        valores.putHaircolor(result.getHairColor());
+                        valores.putSkincolor(result.getSkinColor());
+                        valores.putEyecolor(result.getEyeColor());
+                        valores.putBirthyear(result.getBirthYear());
+                        valores.putGender(result.getGender());
+                        context.getContentResolver().insert(CharactersColumns.CONTENT_URI, valores.values());
+                    }
+
                 }
                 @Override
                 public void onFailure(Throwable t) {
@@ -75,9 +95,8 @@ public class RetroFit {
     }
 
     //Metodo que hace la llamada a la API (Planetas)
-    public void downloadPlanetas(final PlanetAdapter adapter1) {
+    public void downloadPlanetas(final Context context) {
 
-        adapter1.clear();
 
         //Para recorrer las paginas
         for (int i = 7; i > 0 ; i--) {
@@ -92,24 +111,22 @@ public class RetroFit {
 
                     com.example.manuel.starwars.planetsJSON.Example planet = response.body();
 
-                    Log.i("Verificar PLANETS", planet.getResults() + "");
-                    Log.i("Verificar PLANET", planet.getResults().get(0).getPopulation() + "");
-                    Log.i("Verificar PLANET", planet.getResults().get(0).getClimate() + "");
-                    Log.i("Verificar PLANET", planet.getResults().get(0).getCreated() + "");
-                    Log.i("Verificar PLANET", planet.getResults().get(0).getDiameter() + "");
-                    Log.i("Verificar PLANET", planet.getResults().get(0).getEdited() + "");
-                    Log.i("Verificar PLANET", planet.getResults().get(0).getGravity() + "");
-                    Log.i("Verificar PLANET", planet.getResults().get(0).getName() + "");
-                    Log.i("Verificar PLANET", planet.getResults().get(0).getOrbitalPeriod() + "");
-                    Log.i("Verificar PLANET", planet.getResults().get(0).getTerrain() + "");
-                    Log.i("Verificar PLANET", planet.getResults().get(0).getRotationPeriod() + "");
-                    Log.i("Verificar PLANET", planet.getResults().get(0).getSurfaceWater() + "");
-                    Log.i("Verificar PLANET", planet.getResults().get(0).getResidents() + "");
-                    Log.i("Verificar PLANET", planet.getResults().get(0).getUrl() + "");
-                    Log.i("Verificar PLANET", planet.getResults().get(0).getFilms() + "");
+                    for (com.example.manuel.starwars.planetsJSON.Result result : planet.getResults()) {
 
+                        PlanetContentValues valores = new PlanetContentValues();
 
-                    adapter1.addAll(planet.getResults());
+                        valores.putName(result.getName());
+                        valores.putRotationperiod(result.getRotationPeriod());
+                        valores.putOrbitalperiod(result.getOrbitalPeriod());
+                        valores.putDiameter(result.getDiameter());
+                        valores.putClimate(result.getClimate());
+                        valores.putGravity(result.getGravity());
+                        valores.putTerrain(result.getTerrain());
+                        valores.putSurfacewater(result.getSurfaceWater());
+                        valores.putPopulation(result.getPopulation());
+                        context.getContentResolver().insert(PlanetColumns.CONTENT_URI, valores.values());
+                    }
+
                 }
 
                 @Override
@@ -120,9 +137,7 @@ public class RetroFit {
         }
     }
     //Metodo que hace la llamada a la API (Planetas)
-    public void downloadNaves(final StarshipAdapter adapter2) {
-
-        adapter2.clear();
+    public void downloadNaves(final Context context) {
 
         //Para recorrer las paginas
         for (int i = 1; i < 5 ; i++) {
@@ -138,8 +153,26 @@ public class RetroFit {
 
                     com.example.manuel.starwars.starshipsJSON.Example starship = response.body();
 
-                    Log.i("Verificar STARSHIP", starship.getResults() + "");
-                    adapter2.addAll(starship.getResults());
+                    for (com.example.manuel.starwars.starshipsJSON.Result result : starship.getResults()) {
+
+                        StarshipContentValues valores = new StarshipContentValues();
+
+                        valores.putName(result.getName());
+                        valores.putModel(result.getModel());
+                        valores.putManufacturer(result.getManufacturer());
+                        valores.putCostincredits(result.getCostInCredits());
+                        valores.putLength(result.getLength());
+                        valores.putMaxatmospheringspeed(result.getMaxAtmospheringSpeed());
+                        valores.putCrew(result.getCrew());
+                        valores.putPassengers(result.getPassengers());
+                        valores.putCargocapacity(result.getCargoCapacity());
+                        valores.putConsumables(result.getConsumables());
+                        valores.putHyperdriverating(result.getHyperdriveRating());
+                        valores.putMglt(result.getMGLT());
+                        valores.putStarshipclass(result.getStarshipClass());
+                        context.getContentResolver().insert(StarshipColumns.CONTENT_URI, valores.values());
+                    }
+
                 }
 
                 @Override
