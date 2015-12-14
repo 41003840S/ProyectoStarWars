@@ -4,9 +4,12 @@ package com.example.manuel.starwars;
 import android.content.ActivityNotFoundException;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.preference.Preference;
+import android.preference.PreferenceManager;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
@@ -28,12 +31,15 @@ import com.example.manuel.starwars.provider.movies.MoviesColumns;
 import com.example.manuel.starwars.provider.planet.PlanetColumns;
 import com.example.manuel.starwars.provider.starship.StarshipColumns;
 
+import java.util.prefs.Preferences;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     Intent i;
     TextView descripcion;
     ImageView logo;
+    SharedPreferences preferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,31 +48,46 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        logo = (ImageView) findViewById(R.id.mainLogo);
-        logo.setImageResource(R.drawable.titulo);
+        //Si es la primera vez que arranca hace la llamada y lo guarda en la BD
+        preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        boolean primer_arranque = preferences.getBoolean(getString(R.string.primer_arranque),true);
 
-        descripcion = (TextView) findViewById(R.id.mainDescription);
-        descripcion.setText("This APP provides you information about Star Wars Saga, the app feeds itself from an " +
-                "online database called SWAPI.\n\nHere You will find data of:\n\n-Characters\n\n-Planets" +
-                "\n\n-Starships\n\n-Movies\n\n-And more....");
+        if (primer_arranque){
+            SharedPreferences.Editor editor = preferences.edit();
+            editor.putBoolean("", false);
+            editor.apply();
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+            RefreshBackground downloadMoviesTask = new RefreshBackground();
+            downloadMoviesTask.execute();
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
-        toggle.syncState();
+        }
+        //.......................................
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
+            logo = (ImageView) findViewById(R.id.mainLogo);
+            logo.setImageResource(R.drawable.titulo);
+
+            descripcion = (TextView) findViewById(R.id.mainDescription);
+            descripcion.setText("This APP provides you information about Star Wars Saga, the app feeds itself from an " +
+                    "online database called SWAPI.\n\nHere You will find data of:\n\n-Characters\n\n-Planets" +
+                    "\n\n-Starships\n\n-Movies\n\n-And more....");
+
+            FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+            fab.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
+                }
+            });
+
+            DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+            ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                    this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+            drawer.setDrawerListener(toggle);
+            toggle.syncState();
+
+            NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+            navigationView.setNavigationItemSelectedListener(this);
     }
 
     @Override

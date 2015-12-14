@@ -4,10 +4,7 @@ import android.net.Uri;
 import android.provider.BaseColumns;
 
 import com.example.manuel.starwars.provider.StarWarsProvider;
-import com.example.manuel.starwars.provider.characters.CharactersColumns;
-import com.example.manuel.starwars.provider.movies.MoviesColumns;
-import com.example.manuel.starwars.provider.planet.PlanetColumns;
-import com.example.manuel.starwars.provider.starship.StarshipColumns;
+
 
 /**
  * Columns for the {@code planet} table.

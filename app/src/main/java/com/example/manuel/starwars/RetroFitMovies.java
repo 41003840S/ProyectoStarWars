@@ -22,7 +22,7 @@ import retrofit.http.Query;
 interface InterfazTheMovieDB {
 
     //ID de la lista
-    @GET("509fb10819c29510bb000675")
+    @GET("538a6083c3a3686fc6000838")
     Call<Example> listaSaga(
             @Query("api_key") String api_key);
 
@@ -61,7 +61,11 @@ public class RetroFitMovies {
 
                     MoviesContentValues valores = new MoviesContentValues();
 
-                    valores.putTitle(item.getTitle());
+                    String title = item.getOriginalTitle();
+                    if (title.equals("Star Wars")){
+                        title = "Star Wars: Episode IV - A New Hope";
+                    }
+                    valores.putTitle(title);
                     valores.putPopularity(String.valueOf(item.getPopularity())); //Era Double
                     valores.putOverview(item.getOverview());
                     valores.putPosterpath(item.getPosterPath());

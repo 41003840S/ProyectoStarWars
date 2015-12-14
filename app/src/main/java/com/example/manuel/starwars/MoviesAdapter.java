@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 
+import com.example.manuel.starwars.provider.movies.MoviesColumns;
 import com.example.manuel.starwars.provider.movies.MoviesCursor;
 import com.squareup.picasso.Picasso;
 
@@ -48,7 +49,7 @@ public class MoviesAdapter extends SimpleCursorAdapter {
 
         //Metemos los datos de los objetos provinientes del JSON en el layout
         tvTitulo.setText(moviesCursor.getTitle());
-        tvPopularidad.setText(decimal.format(moviesCursor.getPopularity()) + "%");
+        tvPopularidad.setText(moviesCursor.getPopularity() + "%");
         tvDescripcion.setText(moviesCursor.getOverview());
         Picasso.with(context).load(POSTERURL + POSTERSIZE + moviesCursor.getPosterpath()).fit().into(ivPosterImage);
 

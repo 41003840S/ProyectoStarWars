@@ -1,6 +1,5 @@
 package com.example.manuel.starwars.provider.movies;
 
-import java.util.Date;
 
 import android.content.Context;
 import android.content.ContentResolver;

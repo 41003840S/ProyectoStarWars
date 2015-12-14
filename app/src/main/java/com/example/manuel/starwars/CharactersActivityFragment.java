@@ -11,10 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
-import com.example.manuel.starwars.charactersJSON.Result;
 import com.example.manuel.starwars.provider.characters.CharactersColumns;
 
-import java.util.ArrayList;
 
 /**
  * A placeholder fragment containing a simple view.

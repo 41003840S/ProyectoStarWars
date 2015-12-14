@@ -2,9 +2,6 @@ package com.example.manuel.starwars.provider.movies;
 
 import com.example.manuel.starwars.provider.base.BaseModel;
 
-import java.util.Date;
-
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 /**

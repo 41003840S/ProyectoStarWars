@@ -12,6 +12,7 @@
     <string name="title_activity_movie">MovieActivity</string>
 
 
+
     <!-- Strings related to Settings -->
         <!-- Example General settings -->
     <string name="pref_header_general">General</string>
@@ -74,7 +75,8 @@
     <string name="title_activity_comingsoon">ComingsoonActivity</string>
 
     <!-- -->
-
+    <!--Nombre de la preferencia de arranque, para referenciarla-->
+    <string name="primer_arranque"/>
 
 
 </resources>

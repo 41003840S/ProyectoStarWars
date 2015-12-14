@@ -3,6 +3,7 @@ package com.example.manuel.starwars;
 import android.database.Cursor;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -17,17 +18,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.manuel.starwars.sagamoviesJSON.Example;
-import com.example.manuel.starwars.sagamoviesJSON.Item;
+import com.example.manuel.starwars.provider.movies.MoviesColumns;
+import com.example.manuel.starwars.provider.movies.MoviesCursor;
 import com.squareup.picasso.Picasso;
-
-import java.text.DecimalFormat;
-import java.util.ArrayList;
-import java.util.List;
 
 
 public class MoviesActivity extends AppCompatActivity {
@@ -151,6 +147,11 @@ public class MoviesActivity extends AppCompatActivity {
          * fragment.
          */
         private static final String ARG_SECTION_NUMBER = "section_number";
+        TextView tvTitulo, tvPopularidad, tvDescripcion;
+        ImageView ivPosterImage;
+        final private String POSTERURL = "http://image.tmdb.org/t/p/";
+        final private String POSTERSIZE = "w185";
+        int posicion;
 
         /**
          * Returns a new instance of this fragment for the given section
@@ -176,37 +177,42 @@ public class MoviesActivity extends AppCompatActivity {
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
 
-
             View rootView = inflater.inflate(R.layout.fragment_movies, container, false);
 
+            //Inicializamos el Loader
+            getLoaderManager().initLoader(0, null, this);
 
-            /*int posicion = getArguments().getInt(ARG_SECTION_NUMBER);
+            posicion = getArguments().getInt(ARG_SECTION_NUMBER);
 
             //Enlazamos las variables con las ids
-            TextView tvTitulo = (TextView) rootView.findViewById(R.id.tvTitle);
-            TextView tvPopularidad = (TextView) rootView.findViewById(R.id.tvCriticsScore);
-            TextView tvDescripcion = (TextView) rootView.findViewById(R.id.tvSynopsis);
-            ImageView ivPosterImage = (ImageView) rootView.findViewById(R.id.ivPoster);
-
-            if(posicion == 0){
-                //Metemos los datos de los objetos provinientes del JSON en el layout
-                Log.i("Verificar Recibe", pelis.get(0).getTitle() + "");
-                tvTitulo.setText(pelis.get(0).getTitle());
-                tvPopularidad.setText(decimal.format(pelis.get(0).getPopularity()) + "%");
-                tvDescripcion.setText(pelis.get(0).getOverview());
-                Picasso.with(getContext()).load(POSTERURL + POSTERSIZE + pelis.get(0).getPosterPath()).fit().into(ivPosterImage);
-            }*/
+            tvTitulo = (TextView) rootView.findViewById(R.id.tvTitle);
+            tvPopularidad = (TextView) rootView.findViewById(R.id.tvCriticsScore);
+            tvDescripcion = (TextView) rootView.findViewById(R.id.tvSynopsis);
+            ivPosterImage = (ImageView) rootView.findViewById(R.id.ivPoster);
 
             return rootView;
         }
 
         @Override
         public Loader<Cursor> onCreateLoader(int id, Bundle args) {
-            return null;
+            return new CursorLoader(getContext(),
+                    MoviesColumns.CONTENT_URI,
+                    null,
+                    null,
+                    null,
+                    "title");
         }
 
         @Override
         public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
+
+            MoviesCursor moviesCursor = new MoviesCursor(data);
+            moviesCursor.moveToPosition(posicion);
+
+            tvTitulo.setText(moviesCursor.getTitle());
+            tvPopularidad.setText(moviesCursor.getPopularity().substring(0,3) + "%");
+            tvDescripcion.setText(moviesCursor.getOverview());
+            Picasso.with(getContext()).load(POSTERURL + POSTERSIZE + moviesCursor.getPosterpath()).fit().into(ivPosterImage);
 
         }
 
