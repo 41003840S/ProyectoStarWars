@@ -115,7 +115,7 @@ public class MoviesActivity extends AppCompatActivity {
         @Override
         public int getCount() {
             // Show 6 total pages.
-            return 6;
+            return 7;
         }
 
         @Override
@@ -133,6 +133,8 @@ public class MoviesActivity extends AppCompatActivity {
                     return "THE EMPIRE STRIKES BACK";
                 case 5:
                     return "RETURN OF THE JEDI";
+                case 6:
+                    return "THE FORCE AWAKENS";
             }
             return null;
         }
@@ -200,17 +202,20 @@ public class MoviesActivity extends AppCompatActivity {
                     null,
                     null,
                     null,
-                    "title");
+                    "_id");
         }
 
         @Override
         public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
 
+            //le resto uno a posicion porque empezaba desde 1
+            posicion = posicion -1;
+            
             MoviesCursor moviesCursor = new MoviesCursor(data);
             moviesCursor.moveToPosition(posicion);
 
             tvTitulo.setText(moviesCursor.getTitle());
-            tvPopularidad.setText(moviesCursor.getPopularity().substring(0,3) + "%");
+            tvPopularidad.setText(moviesCursor.getPopularity().substring(0,4) + "%");
             tvDescripcion.setText(moviesCursor.getOverview());
             Picasso.with(getContext()).load(POSTERURL + POSTERSIZE + moviesCursor.getPosterpath()).fit().into(ivPosterImage);
 

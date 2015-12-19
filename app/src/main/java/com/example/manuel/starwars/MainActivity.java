@@ -1,6 +1,7 @@
 package com.example.manuel.starwars;
 
 
+
 import android.content.ActivityNotFoundException;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -8,7 +9,6 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.preference.Preference;
 import android.preference.PreferenceManager;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -31,7 +31,6 @@ import com.example.manuel.starwars.provider.movies.MoviesColumns;
 import com.example.manuel.starwars.provider.planet.PlanetColumns;
 import com.example.manuel.starwars.provider.starship.StarshipColumns;
 
-import java.util.prefs.Preferences;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -188,14 +187,18 @@ public class MainActivity extends AppCompatActivity
             i = new Intent(this, MoviesActivity.class);
             startActivity(i);
         }else if (id == R.id.nav_news) {
-            try{
+            i = new Intent (this,ComingSoonActivity.class);
+            startActivity(i);
+
+           /* try{
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("vnd.youtube:" + "sGbxmsDFVnE"));
                 startActivity(intent);
             }catch (ActivityNotFoundException ex){
                 Intent intent= new Intent(Intent.ACTION_VIEW,
                 Uri.parse("http://www.youtube.com/watch?v="+"sGbxmsDFVnE"));
                 startActivity(intent);
-        }
+            }*/
+
         }else if (id == R.id.nav_settings) {
             //i = new Intent(this, SettingsActivity.class);
             //startActivity(i);

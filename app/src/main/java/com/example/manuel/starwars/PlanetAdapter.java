@@ -65,7 +65,7 @@ public class PlanetAdapter extends SimpleCursorAdapter {
         int[] imagenes={R.drawable.p0,R.drawable.p1,R.drawable.p2,R.drawable.p3,R.drawable.p4,
                 R.drawable.p5,R.drawable.p6};
         Random r = new Random();
-        int n = r.nextInt(7);
+        int n = r.nextInt(6);
         planeta.setImageResource(imagenes[n]);
 
         return convertView;

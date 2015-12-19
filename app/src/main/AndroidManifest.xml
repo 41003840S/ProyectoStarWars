@@ -64,10 +64,21 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.manuel.starwars.MainActivity" />
         </activity>
+
         <provider
-            android:name="com.example.manuel.starwars.provider.StarWarsProvider"
+            android:name=".provider.StarWarsProvider"
             android:authorities="com.example.manuel.starwars.provider"
             android:exported="false" />
+
+        <activity
+            android:name=".ComingSoonActivity"
+            android:label="@string/title_activity_coming_soon"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.manuel.starwars.MainActivity" />
+        </activity>
     </application>
 
 </manifest>
