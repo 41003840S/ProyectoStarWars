@@ -1,98 +1,104 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/listview_margin_vertical"
+    android:paddingLeft="@dimen/listview_margin_horizontal"
+    android:paddingRight="@dimen/listview_margin_horizontal"
+    android:paddingTop="@dimen/listview_margin_vertical"
     tools:context="com.example.manuel.starwars.MoviesActivity$PlaceholderFragment">
 
 
-<ScrollView
-    android:id="@+id/scrollView"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="#000000">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <ImageView
-            android:id="@+id/ivPoster"
-            android:layout_width="fill_parent"
-            android:layout_height="225dp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:adjustViewBounds="true"
-            android:scaleType="centerCrop" />
-
-
-        <LinearLayout
-            android:id="@+id/llTitleScores"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@+id/ivPoster"
-            android:orientation="vertical">
+            android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/tvTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignTop="@+id/ivPoster"
-                android:layout_marginLeft="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_toRightOf="@+id/ivPoster"
-                android:text="The Dark Knight"
-                android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+            <ImageView
+                android:id="@+id/ivPoster"
+                android:layout_width="fill_parent"
+                android:layout_height="225dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop" />
+
 
             <LinearLayout
+                android:id="@+id/llTitleScores"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/tvCriticsScore"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignLeft="@+id/tvTitle"
-                    android:layout_below="@+id/tvTitle"
-                    android:layout_marginBottom="8dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_weight="1"
-                    android:text="Critics Score: 93%"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                    android:textSize="14sp" />
-
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_weight="3" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:layout_below="@+id/ivPoster"
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/tvSynopsis"
+                    android:id="@+id/tvTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
+                    android:layout_alignTop="@+id/ivPoster"
                     android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
-                    android:layout_marginTop="10dp"
-                    android:text="This is a story about a protagonist defeating an antagonist"
-                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1" />
+                    android:layout_marginTop="8dp"
+                    android:layout_toRightOf="@+id/ivPoster"
+                    android:text="The Dark Knight"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorAccent" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tvCriticsScore"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/tvTitle"
+                        android:layout_below="@+id/tvTitle"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="1"
+                        android:text="Critics Score: 93%"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                        android:textSize="14sp"
+                        android:textColor="#FFFFFF" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="3" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/ivPoster"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvSynopsis"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginTop="10dp"
+                        android:text="This is a story about a protagonist defeating an antagonist"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1"
+                        android:textColor="#FFFFFF" />
+                </LinearLayout>
+
             </LinearLayout>
 
-        </LinearLayout>
-
-    </RelativeLayout>
-</ScrollView>
+        </RelativeLayout>
+    </ScrollView>
 
 </RelativeLayout>

@@ -88,7 +88,7 @@ public class CharactersActivityFragment extends Fragment implements android.supp
                 null,
                 null,
                 null,
-                "_id");
+                "name");
     }
 
     @Override
