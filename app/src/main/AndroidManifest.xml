@@ -88,6 +88,15 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.manuel.starwars.CharactersActivity" />
         </activity>
+        <activity
+            android:name=".StarshipDetail"
+            android:label="@string/title_activity_starship_detail"
+            android:parentActivityName=".StarShipsActivity"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.manuel.starwars.StarShipsActivity" />
+        </activity>
     </application>
 
 </manifest>

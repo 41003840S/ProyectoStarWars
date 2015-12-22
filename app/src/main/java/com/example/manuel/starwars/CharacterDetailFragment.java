@@ -28,8 +28,6 @@ public class CharacterDetailFragment extends Fragment {
                              Bundle savedInstanceState) {
         View fragmetDetail = inflater.inflate(R.layout.fragment_character_detail, container, false);
 
-
-
         Long movie_id = getActivity().getIntent().getLongExtra("movie_id", -1);
 
         Cursor cursor = getContext().getContentResolver().query(

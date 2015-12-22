@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondostarship">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="tvStarshipName"
+            android:id="@+id/tvStarshipName"
+            style="@style/Base.TextAppearance.AppCompat.Display1"
+            android:textColor="#FFEB3B"
+            android:textStyle="normal|bold|italic"
+            android:layout_gravity="center_horizontal" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="tvStarshipModel"
+            android:id="@+id/tvStarshipModel"
+            style="@style/Base.TextAppearance.AppCompat.Headline"
+            android:textStyle="italic"
+            android:textColor="#FFFFFF"
+            android:layout_gravity="center_horizontal" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="tvStarshipCost"
+            android:id="@+id/tvStarshipCost"
+            style="@style/Base.TextAppearance.AppCompat.Body1"
+            android:textColor="#FFFFFF"
+            android:layout_gravity="center_horizontal" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="tvStarshipLenght"
+            android:id="@+id/tvStarshipLenght"
+            style="@style/Base.TextAppearance.AppCompat.Body1"
+            android:textColor="#FFFFFF"
+            android:layout_gravity="center_horizontal" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="tvStarshipSpeed"
+            android:id="@+id/tvStarshipSpeed"
+            style="@style/Base.TextAppearance.AppCompat.Body1"
+            android:textColor="#FFFFFF"
+            android:layout_gravity="center_horizontal" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="tvStarshipCrew"
+            android:id="@+id/tvStarshipCrew"
+            style="@style/Base.TextAppearance.AppCompat.Body1"
+            android:textColor="#FFFFFF"
+            android:layout_gravity="center_horizontal" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="tvStarshipPassengers"
+            android:id="@+id/tvStarshipPassengers"
+            style="@style/Base.TextAppearance.AppCompat.Body1"
+            android:textColor="#FFFFFF"
+            android:layout_gravity="center_horizontal" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="tvStarshipCargo"
+            android:id="@+id/tvStarshipCargo"
+            style="@style/Base.TextAppearance.AppCompat.Body1"
+            android:textColor="#FFFFFF"
+            android:layout_gravity="center_horizontal" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="tvStarshipConsumibles"
+            android:id="@+id/tvStarshipConsumibles"
+            style="@style/Base.TextAppearance.AppCompat.Body1"
+            android:textColor="#FFFFFF"
+            android:layout_gravity="center_horizontal" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="tvStarshipHyperdrive"
+            android:id="@+id/tvStarshipHyperdrive"
+            style="@style/Base.TextAppearance.AppCompat.Body1"
+            android:textColor="#FFFFFF"
+            android:layout_gravity="center_horizontal" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="tvStarshipMglt"
+            android:id="@+id/tvStarshipMglt"
+            style="@style/Base.TextAppearance.AppCompat.Body1"
+            android:textColor="#FFFFFF"
+            android:layout_gravity="center_horizontal" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="tvStarshipClass"
+            android:id="@+id/tvStarshipClass"
+            style="@style/Base.TextAppearance.AppCompat.Body1"
+            android:textColor="#FFFFFF"
+            android:layout_gravity="center_horizontal" />
+
+
+    </LinearLayout>
+
+</LinearLayout>

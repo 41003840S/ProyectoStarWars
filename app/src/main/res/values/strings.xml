@@ -78,6 +78,7 @@
     <string name="primer_arranque"/>
     <string name="title_activity_coming_soon">ComingSoonActivity</string>
     <string name="title_activity_character_detail">CharacterDetail</string>
+    <string name="title_activity_starship_detail">StarshipDetail</string>
 
 
 </resources>

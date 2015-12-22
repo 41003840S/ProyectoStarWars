@@ -1,5 +1,6 @@
 package com.example.manuel.starwars;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -8,6 +9,7 @@ import android.support.v4.content.Loader;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.manuel.starwars.provider.starship.StarshipColumns;
@@ -53,7 +55,7 @@ public class StarShipsActivityFragment extends Fragment implements android.suppo
                 null,
                 new String[]{
                         StarshipColumns.NAME,
-                        StarshipColumns.MODEL,
+                       /* StarshipColumns.MODEL,
                         StarshipColumns.COSTINCREDITS,
                         StarshipColumns.LENGTH,
                         StarshipColumns.MAXATMOSPHERINGSPEED,
@@ -63,11 +65,11 @@ public class StarShipsActivityFragment extends Fragment implements android.suppo
                         StarshipColumns.CONSUMABLES,
                         StarshipColumns.HYPERDRIVERATING,
                         StarshipColumns.MGLT,
-                        StarshipColumns.STARSHIPCLASS
+                        StarshipColumns.STARSHIPCLASS*/
                 },
                 new int[]{
                         R.id.tvStarshipName,
-                        R.id.tvStarshipModel,
+                      /*  R.id.tvStarshipModel,
                         R.id.tvStarshipCost,
                         R.id.tvStarshipLenght,
                         R.id.tvStarshipSpeed,
@@ -77,12 +79,24 @@ public class StarShipsActivityFragment extends Fragment implements android.suppo
                         R.id.tvStarshipConsumibles,
                         R.id.tvStarshipHyperdrive,
                         R.id.tvStarshipMglt,
-                        R.id.tvStarshipClass
+                        R.id.tvStarshipClass*/
 
                 },
                 0);
 
         listaNaves.setAdapter(starshipAdapter);
+
+        //Crea un Listener para que con pulsacion abra otro activity con la informacion de la pelicula
+        listaNaves.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                //Cogemos la id de la pelicula seleccionada y se la pasamos con un intent a ActivityDetail
+                Intent i = new Intent(getContext(), StarshipDetail.class);
+                i.putExtra("starship_id", id);
+                startActivity(i);
+            }
+        });
+
 
         return StarShipsFragment;
     }
@@ -94,7 +108,7 @@ public class StarShipsActivityFragment extends Fragment implements android.suppo
                 null,
                 null,
                 null,
-                "_id");
+                "name");
     }
 
     @Override

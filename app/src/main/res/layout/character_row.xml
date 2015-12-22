@@ -16,7 +16,7 @@
             android:layout_height="match_parent"
             android:text="New Text"
             android:textStyle="italic"
-            android:textColor="#FFEB3B"
+            android:textColor="#FFFFFF"
             android:background="#000000"
             android:gravity="center|start|center_horizontal" />
     </LinearLayout>

@@ -42,51 +42,16 @@ public class StarshipAdapter extends SimpleCursorAdapter {
 
         //Enlazamos las variables con las ids
         starshipNombre = (TextView) convertView.findViewById(R.id.tvStarshipName);
-        starshipModelo = (TextView) convertView.findViewById(R.id.tvStarshipModel);
-        starshipCoste = (TextView) convertView.findViewById(R.id.tvStarshipCost);
-        starshipLongitud = (TextView) convertView.findViewById(R.id.tvStarshipLenght);
-        starshipVelocidad = (TextView) convertView.findViewById(R.id.tvStarshipSpeed);
-        starshipTripulacion = (TextView) convertView.findViewById(R.id.tvStarshipCrew);
-        starshipPasajeros = (TextView) convertView.findViewById(R.id.tvStarshipPassengers);
-        starshipCarga = (TextView) convertView.findViewById(R.id.tvStarshipCargo);
-        starshipConsumible = (TextView) convertView.findViewById(R.id.tvStarshipConsumibles);
-        starshipHyper = (TextView) convertView.findViewById(R.id.tvStarshipHyperdrive);
-        starshipMglt = (TextView) convertView.findViewById(R.id.tvStarshipMglt);
-        starshipClase = (TextView) convertView.findViewById(R.id.tvStarshipClass);
 
         //Metemos los datos de los objetos provinientes de la BD en el layout
         starshipNombre.setText(starshipCursor.getName());
-        starshipModelo.setText(starshipCursor.getModel());
-        starshipCoste.setText("COST: " + starshipCursor.getCostincredits() + " Credits");
-        starshipLongitud.setText("LENGHT: " + starshipCursor.getLength());
-        starshipVelocidad.setText("SPEED: " + starshipCursor.getMaxatmospheringspeed());
-        starshipTripulacion.setText("CREW: " + starshipCursor.getCrew());
-        starshipPasajeros.setText("PASSENGERS: " + starshipCursor.getPassengers() + " passengers");
-        starshipCarga.setText("CARGO: " + starshipCursor.getCargocapacity() + " Kg");
-        starshipConsumible.setText("CONSUMABLES: " + starshipCursor.getConsumables());
-        starshipHyper.setText("HYPER DRIVE: " + starshipCursor.getHyperdriverating());
-        starshipMglt.setText("MEGA LIGHT: " + starshipCursor.getMglt());
-        starshipClase.setText("CLASS: " + starshipCursor.getStarshipclass());
 
         //Si la posicion es par o impar
-        if (position % 2 == 1) {
-            convertView.setBackgroundResource(R.drawable.space2);
+        /*if (position % 2 == 1) {
+
         } else {
-            convertView.setBackgroundResource(R.drawable.space1);
-            starshipNombre.setTextAlignment((View.TEXT_ALIGNMENT_TEXT_END));
-            starshipModelo.setTextAlignment((View.TEXT_ALIGNMENT_TEXT_END));
-            starshipCoste.setTextAlignment((View.TEXT_ALIGNMENT_TEXT_END));
-            starshipLongitud.setTextAlignment((View.TEXT_ALIGNMENT_TEXT_END));
-            starshipVelocidad.setTextAlignment((View.TEXT_ALIGNMENT_TEXT_END));
-            starshipTripulacion.setTextAlignment((View.TEXT_ALIGNMENT_TEXT_END));
-            starshipPasajeros.setTextAlignment((View.TEXT_ALIGNMENT_TEXT_END));
-            starshipCarga.setTextAlignment((View.TEXT_ALIGNMENT_TEXT_END));
-            starshipConsumible.setTextAlignment((View.TEXT_ALIGNMENT_TEXT_END));
-            starshipHyper.setTextAlignment((View.TEXT_ALIGNMENT_TEXT_END));
-            starshipPasajeros.setTextAlignment((View.TEXT_ALIGNMENT_TEXT_END));
-            starshipMglt.setTextAlignment((View.TEXT_ALIGNMENT_TEXT_END));
-            starshipClase.setTextAlignment((View.TEXT_ALIGNMENT_TEXT_END));
-        }
+
+        }*/
 
         return convertView;
 
