@@ -87,7 +87,7 @@ public class PlanetsActivityFragment extends Fragment implements android.support
                 null,
                 null,
                 null,
-                "_id");
+                "name");
     }
 
     @Override
