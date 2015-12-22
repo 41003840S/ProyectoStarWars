@@ -79,6 +79,15 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.manuel.starwars.MainActivity" />
         </activity>
+        <activity
+            android:name=".CharacterDetail"
+            android:label="@string/title_activity_character_detail"
+            android:parentActivityName=".CharactersActivity"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.manuel.starwars.CharactersActivity" />
+        </activity>
     </application>
 
 </manifest>

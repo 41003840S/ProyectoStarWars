@@ -62,22 +62,6 @@ public class MainActivity extends AppCompatActivity
         }
         //.......................................
 
-            logo = (ImageView) findViewById(R.id.mainLogo);
-            logo.setImageResource(R.drawable.titulo);
-
-            descripcion = (TextView) findViewById(R.id.mainDescription);
-            descripcion.setText("This APP provides you information about Star Wars Saga, the app feeds itself from an " +
-                    "online database called SWAPI.\n\nHere You will find data of:\n\n-Characters\n\n-Planets" +
-                    "\n\n-Starships\n\n-Movies\n\n-And more....");
-
-            FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-            fab.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                            .setAction("Action", null).show();
-                }
-            });
 
             DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
             ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(

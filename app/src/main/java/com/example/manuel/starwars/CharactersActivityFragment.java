@@ -1,6 +1,7 @@
 package com.example.manuel.starwars;
 
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -9,6 +10,7 @@ import android.support.v4.content.Loader;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.manuel.starwars.provider.characters.CharactersColumns;
@@ -55,28 +57,25 @@ public class CharactersActivityFragment extends Fragment implements android.supp
                 null,
                 new String[]{
                         CharactersColumns.NAME,
-                        CharactersColumns.HEIGHT,
-                        CharactersColumns.MASS,
-                        CharactersColumns.HAIRCOLOR,
-                        CharactersColumns.SKINCOLOR,
-                        CharactersColumns.EYECOLOR,
-                        CharactersColumns.BIRTHYEAR,
-                        CharactersColumns.GENDER
                 },
                 new int[]{
                         R.id.tvName,
-                        R.id.tvHeight,
-                        R.id.tvMass,
-                        R.id.tvHair,
-                        R.id.tvSkin,
-                        R.id.tvEye,
-                        R.id.tvBirth,
-                        R.id.tvGender
                 },
                 0);
 
         //Seteamos el GridView con el adaptador
         listaPersonajes.setAdapter(adapterCharacters);
+
+        //Crea un Listener para que con pulsacion abra otro activity con la informacion de la pelicula
+        listaPersonajes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                //Cogemos la id de la pelicula seleccionada y se la pasamos con un intent a ActivityDetail
+                Intent i = new Intent(getContext(), CharacterDetail.class);
+                i.putExtra("movie_id", id);
+                startActivity(i);
+            }
+        });
 
 
         return CharactersFragment;

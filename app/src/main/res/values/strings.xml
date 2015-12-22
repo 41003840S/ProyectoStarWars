@@ -10,8 +10,7 @@
     <string name="title_activity_star_ships">StarShipsActivity</string>
     <string name="title_activity_settings">Settings</string>
     <string name="title_activity_movie">MovieActivity</string>
-
-
+    <string name="string_intro">"This APP provides you information about Star Wars Saga, the app feeds itself from an online database called SWAPI.\n\nHere You will find data of:\n\n-Characters\n\n-Planets\n\n-Starships\n\n-Movies\n\n-And more...."</string>
 
     <!-- Strings related to Settings -->
         <!-- Example General settings -->
@@ -78,6 +77,7 @@
     <!--Nombre de la preferencia de arranque, para referenciarla-->
     <string name="primer_arranque"/>
     <string name="title_activity_coming_soon">ComingSoonActivity</string>
+    <string name="title_activity_character_detail">CharacterDetail</string>
 
 
 </resources>
