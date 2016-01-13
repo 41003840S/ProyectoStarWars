@@ -49,29 +49,8 @@ public class PlanetsActivityFragment extends Fragment implements android.support
         planetAdapter = new PlanetAdapter(getContext(),
                 R.layout.planet_row,
                 null,
-                new String[]{
-                        PlanetColumns.NAME,
-                        PlanetColumns.ROTATIONPERIOD,
-                        PlanetColumns.ORBITALPERIOD,
-                        PlanetColumns.DIAMETER,
-                        PlanetColumns.CLIMATE,
-                        PlanetColumns.GRAVITY,
-                        PlanetColumns.TERRAIN,
-                        PlanetColumns.SURFACEWATER,
-                        PlanetColumns.POPULATION
-
-                },
-                new int[]{
-                        R.id.tvPlanetName,
-                        R.id.tvPlanetRotation,
-                        R.id.tvPlanetOrbital,
-                        R.id.tvPlanetDiameter,
-                        R.id.tvPlanetClimate,
-                        R.id.tvPlanetGravity,
-                        R.id.tvPlanetTerrain,
-                        R.id.tvPlanetWater,
-                        R.id.tvPlanetPopulation
-                },
+                new String[]{},
+                new int[]{},
                 0);
 
         listaPlanetas.setAdapter(planetAdapter);

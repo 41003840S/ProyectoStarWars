@@ -1,17 +1,12 @@
 package com.example.manuel.starwars;
 
-
-
-import android.content.ActivityNotFoundException;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.Uri;
+import android.database.Cursor;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -25,11 +20,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.manuel.starwars.provider.characters.CharactersColumns;
@@ -43,6 +36,11 @@ public class MainActivity extends AppCompatActivity
 
     Intent i;
     SharedPreferences preferences;
+    ListView searchListView;
+    CharacterAdapter characterAdapter;
+    PlanetAdapter planetAdapter;
+    StarshipAdapter starshipAdapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +64,7 @@ public class MainActivity extends AppCompatActivity
         }
         //.......................................
 
+        searchListView = (ListView) findViewById(R.id.listViewSearch);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -99,14 +98,98 @@ public class MainActivity extends AppCompatActivity
                             @Override
                             public void afterTextChanged(Editable s) {
 
+                               Cursor autocompleteCursor = getBaseContext().getContentResolver().query(
+                                        CharactersColumns.CONTENT_URI,
+                                        null,
+                                        CharactersColumns.NAME + " LIKE ?",
+                                        new String[]{searchText.getText().toString() + "%"},
+                                        "name");
+
+                                characterAdapter = new CharacterAdapter(getBaseContext(),
+                                        R.layout.character_row,
+                                        autocompleteCursor,
+                                        new String[]{
+                                                CharactersColumns.NAME,
+                                        },
+                                        new int[]{
+                                                R.id.tvName,
+                                        },
+                                        0);
+
+                                searchListView.setAdapter(characterAdapter);
+
+                            }
+                        });
+
+                    } else if (position == 1) {
+
+                        searchText.addTextChangedListener(new TextWatcher() {
+                            @Override
+                            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                            }
+
+                            @Override
+                            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                            }
+
+                            @Override
+                            public void afterTextChanged(Editable s) {
+
+                                Cursor autocompleteCursor = getBaseContext().getContentResolver().query(
+                                        PlanetColumns.CONTENT_URI,
+                                        null,
+                                        PlanetColumns.NAME + " LIKE ?",
+                                        new String[]{searchText.getText().toString() + "%"},
+                                        "name");
+
+                                planetAdapter = new PlanetAdapter(getBaseContext(),
+                                        R.layout.planet_row,
+                                        autocompleteCursor,
+                                        new String[]{},
+                                        new int[]{},
+                                        0);
+
+                                searchListView.setAdapter(planetAdapter);
                             }
                         });
 
 
-
-                    } else if (position == 1) {
-
                     } else if (position == 2) {
+
+                        searchText.addTextChangedListener(new TextWatcher() {
+                            @Override
+                            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                            }
+
+                            @Override
+                            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                            }
+
+                            @Override
+                            public void afterTextChanged(Editable s) {
+
+                                Cursor autocompleteCursor = getBaseContext().getContentResolver().query(
+                                        StarshipColumns.CONTENT_URI,
+                                        null,
+                                        StarshipColumns.NAME + " LIKE ?",
+                                        new String[]{searchText.getText().toString() + "%"},
+                                        "name");
+
+                                starshipAdapter = new StarshipAdapter(getBaseContext(),
+                                        R.layout.starship_row,
+                                        autocompleteCursor,
+                                        new String[]{},
+                                        new int[]{},
+                                        0);
+
+                                searchListView.setAdapter(starshipAdapter);
+
+                            }
+                        });
 
                     }
 
