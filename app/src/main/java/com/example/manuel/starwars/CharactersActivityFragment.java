@@ -66,11 +66,11 @@ public class CharactersActivityFragment extends Fragment implements android.supp
         //Seteamos el GridView con el adaptador
         listaPersonajes.setAdapter(adapterCharacters);
 
-        //Crea un Listener para que con pulsacion abra otro activity con la informacion de la pelicula
+        //Crea un Listener para que con pulsacion abra otro activity con la informacion
         listaPersonajes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //Cogemos la id de la pelicula seleccionada y se la pasamos con un intent a ActivityDetail
+
                 Intent i = new Intent(getContext(), CharacterDetail.class);
                 i.putExtra("movie_id", id);
                 startActivity(i);

@@ -40,6 +40,8 @@ public class MainActivity extends AppCompatActivity
     CharacterAdapter characterAdapter;
     PlanetAdapter planetAdapter;
     StarshipAdapter starshipAdapter;
+    Spinner spinner;
+    EditText searchText;
 
 
     @Override
@@ -75,8 +77,11 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        Spinner spinner = (Spinner) findViewById(R.id.spinner);
-        final EditText searchText = (EditText) findViewById(R.id.editTextSearch);
+        spinner = (Spinner) findViewById(R.id.spinner);
+        searchText = (EditText) findViewById(R.id.editTextSearch);
+
+        spinner.setVisibility(View.INVISIBLE);
+        searchText.setVisibility(View.INVISIBLE);
 
         spinner.setPrompt("Select Category");
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -117,6 +122,16 @@ public class MainActivity extends AppCompatActivity
                                         0);
 
                                 searchListView.setAdapter(characterAdapter);
+                                searchListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                                    @Override
+                                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                                        Intent i = new Intent(getBaseContext(), CharacterDetail.class);
+                                        i.putExtra("movie_id", id);
+                                        startActivity(i);
+                                    }
+                                });
+
 
                             }
                         });
@@ -152,6 +167,16 @@ public class MainActivity extends AppCompatActivity
                                         0);
 
                                 searchListView.setAdapter(planetAdapter);
+
+                                searchListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                                    @Override
+                                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                                        Intent i = new Intent(getBaseContext(), PlanetDetail.class);
+                                        i.putExtra("planet_id", id);
+                                        startActivity(i);
+                                    }
+                                });
                             }
                         });
 
@@ -188,6 +213,15 @@ public class MainActivity extends AppCompatActivity
 
                                 searchListView.setAdapter(starshipAdapter);
 
+                                searchListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                                    @Override
+                                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                                        Intent i = new Intent(getBaseContext(), StarshipDetail.class);
+                                        i.putExtra("starship_id", id);
+                                        startActivity(i);
+                                    }
+                                });
                             }
                         });
 
@@ -276,6 +310,10 @@ public class MainActivity extends AppCompatActivity
         // show alert
         alertDialog.show();
         return true;
+        }
+        if (id == R.id.action_search) {
+            spinner.setVisibility(View.VISIBLE);
+            searchText.setVisibility(View.VISIBLE);
         }
 
     return super.onOptionsItemSelected(item);

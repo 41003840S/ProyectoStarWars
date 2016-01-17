@@ -1,5 +1,6 @@
 package com.example.manuel.starwars;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -8,6 +9,7 @@ import android.support.v4.content.Loader;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.manuel.starwars.provider.planet.PlanetColumns;
@@ -54,6 +56,18 @@ public class PlanetsActivityFragment extends Fragment implements android.support
                 0);
 
         listaPlanetas.setAdapter(planetAdapter);
+
+
+        //Crea un Listener para que con pulsacion abra otro activity con la informacion
+        listaPlanetas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                Intent i = new Intent(getContext(), PlanetDetail.class);
+                i.putExtra("planet_id", id);
+                startActivity(i);
+            }
+        });
 
         return PlanetsFragment;
     }

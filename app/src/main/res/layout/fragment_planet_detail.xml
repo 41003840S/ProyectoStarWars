@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#000000">
+
+    <TextView
+        android:id="@+id/tvPlanetName"
+        style="@style/Base.TextAppearance.AppCompat.Display2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:textStyle="normal|bold|italic"
+        android:textColor="#FFEB3B"
+        android:gravity="center_horizontal" />
+
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="120dp"
+        android:id="@+id/imagePlanet"
+        android:layout_below="@+id/tvPlanetName"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center" />
+
+
+    <TextView
+        android:id="@+id/tvPlanetPopulation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:layout_below="@+id/imagePlanet"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/material_grey_300"
+        style="Base.TextAppearance.AppCompat.Body2"
+        android:textStyle="normal|bold|italic" />
+
+    <TextView
+         android:id="@+id/tvPlanetRotation"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:text="New Text"
+         android:layout_below="@+id/tvPlanetOrbital"
+         android:layout_alignStart="@+id/tvPlanetOrbital"
+        android:textColor="@color/material_grey_300"
+        style="Base.TextAppearance.AppCompat.Body2"
+        android:textStyle="normal|bold|italic" />
+
+     <TextView
+         android:id="@+id/tvPlanetOrbital"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:text="New Text"
+         android:layout_below="@+id/tvPlanetDiameter"
+         android:layout_alignStart="@+id/tvPlanetDiameter"
+         android:textColor="@color/material_grey_300"
+         style="Base.TextAppearance.AppCompat.Body2"
+         android:textStyle="normal|bold|italic" />
+
+     <TextView
+         android:id="@+id/tvPlanetDiameter"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:text="New Text"
+         android:layout_below="@+id/tvPlanetClimate"
+         android:layout_alignStart="@+id/tvPlanetClimate"
+         android:textColor="@color/material_grey_300"
+         style="Base.TextAppearance.AppCompat.Body2"
+         android:textStyle="normal|bold|italic" />
+
+     <TextView
+         android:id="@+id/tvPlanetClimate"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:text="New Text"
+         android:layout_below="@+id/tvPlanetGravity"
+         android:layout_alignStart="@+id/tvPlanetGravity"
+         android:textColor="@color/material_grey_300"
+         style="Base.TextAppearance.AppCompat.Body2"
+         android:textStyle="normal|bold|italic" />
+
+     <TextView
+         android:id="@+id/tvPlanetGravity"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:text="New Text"
+         android:layout_below="@+id/tvPlanetTerrain"
+         android:layout_toEndOf="@+id/imagePlanet"
+         android:layout_alignParentStart="true"
+         android:textColor="@color/material_grey_300"
+         style="Base.TextAppearance.AppCompat.Body2"
+         android:textStyle="normal|bold|italic" />
+
+     <TextView
+         android:id="@+id/tvPlanetTerrain"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:text="New Text"
+         android:layout_below="@+id/tvPlanetWater"
+         android:layout_toEndOf="@+id/imagePlanet"
+         android:layout_alignParentStart="true"
+         android:textColor="@color/material_grey_300"
+         style="Base.TextAppearance.AppCompat.Body2"
+         android:textStyle="normal|bold|italic" />
+
+     <TextView
+         android:id="@+id/tvPlanetWater"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:text="New Text"
+         android:layout_below="@+id/tvPlanetPopulation"
+         android:layout_toEndOf="@+id/imagePlanet"
+         android:layout_alignParentStart="true"
+         android:textColor="@color/material_grey_300"
+         style="Base.TextAppearance.AppCompat.Body2"
+         android:textStyle="normal|bold|italic" />
+
+</LinearLayout>

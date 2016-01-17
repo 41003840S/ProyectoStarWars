@@ -18,29 +18,11 @@
 
         <ImageView
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="200dp"
         android:id="@+id/mainLogo"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:src="@drawable/logointro" />
-
-    <View
-        android:layout_width="242dp"
-        android:layout_height="2dp"
-        android:background="@color/colorAccent"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
-        android:layout_gravity="center" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Search"
-        android:id="@+id/textView2"
-        android:textColor="@color/colorAccent"
-        style="@style/Base.TextAppearance.AppCompat.Display1"
-        android:layout_marginBottom="20dp"
-        android:layout_gravity="center" />
 
     <Spinner
             android:layout_width="match_parent"
